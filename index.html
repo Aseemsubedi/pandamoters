@@ -1,0 +1,2282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff">
+    <title>Panda Wheels | Authorised CG Motors Partner</title>
+    <meta name="description" content="Panda Wheels is an authorised CG Motors partner in Panipokhari, Kathmandu. AION, XPENG, and RIDDARA. Charging across Nepal.">
+    <link rel="icon" type="image/png" href="assets/panda-wheels.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FFFFFF;
+            --bg-soft: #F5F5F7;
+            --navy: #001040;
+            --sky: #25AAE1;
+            --sky-deep: #0D62CD;
+            --text: #001040;
+            --muted: #6E7A90;
+            --hairline: rgba(0, 16, 64, 0.10);
+            --glow: rgba(37, 170, 225, 0.22);
+            --nav-h: 72px;
+            --radius: 22px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        a, button, input, textarea, select, label { cursor: pointer; }
+
+        body {
+            font-family: Poppins, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+        }
+
+        img { max-width: 100%; }
+        button, a, input, select, textarea { touch-action: manipulation; }
+        a, button { -webkit-tap-highlight-color: rgba(13, 98, 205, 0.12); }
+
+        ::selection {
+            background: rgba(37, 170, 225, 0.22);
+            color: var(--navy);
+        }
+
+        .wrap {
+            width: min(1120px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: calc(var(--nav-h) + env(safe-area-inset-top));
+            padding-top: env(safe-area-inset-top);
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: saturate(1.4) blur(20px);
+            -webkit-backdrop-filter: saturate(1.4) blur(20px);
+            border-bottom: 1px solid transparent;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        header.is-scrolled {
+            background: rgba(255, 255, 255, 0.92);
+            border-bottom-color: var(--hairline);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            height: var(--nav-h);
+            gap: 28px;
+        }
+
+        .brand-lockup {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .brand-lockup .logo-img {
+            display: block;
+            height: 52px;
+            width: auto;
+        }
+
+        .brand-lockup .logo-img.cg { height: 20px; }
+
+        .lockup-rule {
+            width: 1px;
+            height: 28px;
+            background: var(--hairline);
+            flex-shrink: 0;
+        }
+
+        header .brand-lockup .logo-img { height: 58px; }
+        header .brand-lockup .logo-img.cg { height: 22px; }
+        header .lockup-rule { height: 32px; }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .nav-links a {
+            position: relative;
+            text-decoration: none;
+            color: var(--navy);
+            font-size: 0.78rem;
+            font-weight: 500;
+            opacity: 0.78;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -7px;
+            height: 1.5px;
+            background: var(--sky);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active { opacity: 1; }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after { transform: scaleX(1); }
+
+        .nav-links a[href="#charging"] {
+            font-size: 0.95rem;
+            font-weight: 600;
+            opacity: 1;
+        }
+
+        .nav-more { display: none; }
+
+        .nav-end {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #fff;
+            background: var(--navy);
+            padding: 8px 16px;
+            border-radius: 999px;
+            transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+        }
+
+        .nav-cta:hover {
+            background: var(--sky-deep);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 24px rgba(13, 98, 205, 0.28);
+        }
+
+        .menu-toggle {
+            display: none;
+            position: relative;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 12px;
+            background: var(--bg-soft);
+        }
+
+        .menu-toggle span {
+            position: absolute;
+            left: 11px;
+            right: 11px;
+            height: 1.5px;
+            background: var(--navy);
+            border-radius: 99px;
+            transition: transform 0.25s, opacity 0.2s, top 0.25s;
+        }
+
+        .menu-toggle span:nth-child(1) { top: 14px; }
+        .menu-toggle span:nth-child(2) { top: 19px; }
+        .menu-toggle span:nth-child(3) { top: 24px; }
+        .menu-toggle.is-open span:nth-child(1) { top: 19px; transform: rotate(45deg); }
+        .menu-toggle.is-open span:nth-child(2) { opacity: 0; }
+        .menu-toggle.is-open span:nth-child(3) { top: 19px; transform: rotate(-45deg); }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            padding: 64px 0 40px;
+            text-align: center;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(48px);
+            z-index: 0;
+            animation: orb-drift 16s ease-in-out infinite;
+        }
+
+        .orb-a {
+            width: 420px;
+            height: 420px;
+            top: -80px;
+            left: 8%;
+            background: rgba(37, 170, 225, 0.22);
+        }
+
+        .orb-b {
+            width: 340px;
+            height: 340px;
+            top: 40px;
+            right: 6%;
+            background: rgba(13, 98, 205, 0.16);
+            animation-delay: -6s;
+            animation-duration: 20s;
+        }
+
+        @keyframes orb-drift {
+            0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+            50% { transform: translate3d(40px, 28px, 0) scale(1.12); }
+        }
+
+        .kicker {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--sky);
+            margin-bottom: 14px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5.6rem);
+            font-weight: 700;
+            letter-spacing: -0.045em;
+            line-height: 1.05;
+            color: var(--navy);
+        }
+
+        .hero .wrap { position: relative; z-index: 1; }
+
+        .hero h1 em {
+            font-style: normal;
+            background: linear-gradient(100deg, var(--navy) 8%, var(--sky) 42%, var(--sky-deep) 68%, var(--navy) 100%);
+            background-size: 220% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: word-shine 7s ease-in-out infinite;
+        }
+
+        @keyframes word-shine {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+        }
+
+        .hero-sub {
+            margin: 16px auto 0;
+            max-width: 42ch;
+            font-size: 1.18rem;
+            color: var(--muted);
+            font-weight: 400;
+        }
+
+        .text-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px 28px;
+            margin-top: 20px;
+        }
+
+        .text-links a {
+            color: var(--sky-deep);
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .text-links a:hover { color: var(--navy); }
+
+        .text-links a span {
+            display: inline-block;
+            margin-left: 2px;
+            transition: transform 0.2s;
+        }
+
+        .text-links a:hover span { transform: translateX(3px); }
+
+        .hero-mosaic {
+            display: grid;
+            grid-template-columns: 1.45fr 0.9fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 12px;
+            margin-top: 56px;
+            text-align: left;
+            min-height: 520px;
+            perspective: 1200px;
+        }
+
+        .hero-stage,
+        .hero-tile {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius);
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            isolation: isolate;
+            transform-style: preserve-3d;
+            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+            will-change: transform;
+        }
+
+        .hero-stage:hover,
+        .hero-tile:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 28px 60px rgba(0, 16, 64, 0.18);
+        }
+
+        .hero-stage {
+            grid-row: 1 / span 2;
+            min-height: 420px;
+        }
+
+        .hero-stage img,
+        .hero-tile img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            transform: scale(1.06);
+            animation: ken 22s ease-in-out infinite alternate;
+        }
+
+        @keyframes ken {
+            from { transform: scale(1.04) translate3d(0, 0, 0); }
+            to { transform: scale(1.12) translate3d(-2%, -1%, 0); }
+        }
+
+        .hero-stage:hover img,
+        .hero-tile:hover img {
+            animation-play-state: paused;
+            transform: scale(1.12);
+            transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .hero-stage::before,
+        .hero-tile.photo::before,
+        .brand-card::before,
+        .about-photo::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            background: linear-gradient(105deg, transparent 36%, rgba(255,255,255,0.22) 50%, transparent 64%);
+            transform: translateX(-130%);
+        }
+
+        .hero-stage:hover::before,
+        .hero-tile.photo:hover::before,
+        .brand-card:hover::before,
+        .about-photo:hover::before {
+            animation: shine 0.85s ease;
+        }
+
+        @keyframes shine {
+            to { transform: translateX(130%); }
+        }
+
+        .hero-stage::after,
+        .hero-tile.photo::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(180deg, rgba(0,16,64,0.05) 30%, rgba(0,16,64,0.78) 100%);
+        }
+
+        .hero-stage .copy,
+        .hero-tile .copy {
+            position: relative;
+            z-index: 3;
+            padding: 26px 28px 24px;
+        }
+
+        .hero-stage p,
+        .hero-tile p {
+            font-size: 0.7rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--sky);
+            margin-bottom: 8px;
+        }
+
+        .hero-stage h2 {
+            font-size: clamp(1.6rem, 3vw, 2.15rem);
+            font-weight: 600;
+            letter-spacing: -0.035em;
+            line-height: 1.15;
+        }
+
+        .hero-tile h3 {
+            font-size: 1.28rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.25;
+        }
+
+        .hero-stage span,
+        .hero-tile span {
+            display: inline-block;
+            margin-top: 14px;
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+
+        .hero-tile.navy {
+            background: var(--navy);
+            color: #fff;
+            padding: 0;
+            min-height: 200px;
+        }
+
+        .hero-tile.navy .copy { padding: 24px 26px; }
+
+        /* Sections */
+        section { padding: 88px 0; }
+        #lineup, #finance, #contact { background: var(--bg-soft); }
+        #charging, #about { background: var(--bg); }
+        #charging { padding: 100px 0 108px; }
+
+        .section-head {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(2.1rem, 4.5vw, 3.1rem);
+            font-weight: 700;
+            letter-spacing: -0.035em;
+            line-height: 1.1;
+        }
+
+        .section-head .lead {
+            margin: 12px auto 0;
+            max-width: 38ch;
+            color: var(--muted);
+            font-size: 1.12rem;
+        }
+
+        /* Lineup */
+        .brand-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 14px;
+            min-height: 560px;
+        }
+
+        .brand-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+            border-radius: var(--radius);
+            min-height: 240px;
+            text-decoration: none;
+            color: #fff;
+            isolation: isolate;
+            transform-style: preserve-3d;
+            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+            will-change: transform;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 52px rgba(0, 16, 64, 0.16);
+        }
+
+        .brand-card.aion {
+            grid-row: 1 / span 2;
+            min-height: 460px;
+        }
+
+        .brand-card.aion .brand-photo { object-position: 55% 50%; }
+
+        .brand-photo {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            transform: scale(1.05);
+            animation: ken 24s ease-in-out infinite alternate;
+        }
+
+        .brand-card:hover .brand-photo {
+            animation-play-state: paused;
+            transform: scale(1.1);
+            transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .brand-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(180deg, rgba(0, 16, 64, 0.08) 28%, rgba(0, 16, 64, 0.72) 100%);
+        }
+
+        .brand-copy {
+            position: relative;
+            z-index: 3;
+            padding: 24px 26px 22px;
+        }
+
+        .brand-card h3 {
+            font-size: 1.55rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+        }
+
+        .brand-card .tagline {
+            margin-top: 4px;
+            color: rgba(255,255,255,0.78);
+            font-size: 0.92rem;
+        }
+
+        .brand-card .group {
+            font-size: 0.68rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--sky);
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .brand-card .go {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* Charging */
+        .charge-layout {
+            display: grid;
+            grid-template-columns: 0.92fr 1.08fr;
+            gap: 16px;
+            align-items: stretch;
+        }
+
+        .charge-visual {
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius);
+            min-height: 520px;
+            isolation: isolate;
+            border: 1px solid var(--hairline);
+        }
+
+        .charge-visual img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transform: scale(1.06);
+            transition: opacity 1.1s ease;
+            z-index: 0;
+        }
+
+        .charge-visual img.is-on { opacity: 1; }
+        .charge-visual img:nth-child(1) { object-position: 58% 50%; }
+        .charge-visual img:nth-child(2) { object-position: 50% 60%; }
+        .charge-visual img:nth-child(3) { object-position: 50% 45%; }
+
+        .charge-dots {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            z-index: 3;
+            display: flex;
+            gap: 6px;
+        }
+
+        .charge-dots button {
+            width: 7px;
+            height: 7px;
+            padding: 0;
+            border: 0;
+            border-radius: 99px;
+            background: rgba(255,255,255,0.4);
+            transition: width 0.3s, background 0.3s;
+        }
+
+        .charge-dots button.is-on {
+            width: 18px;
+            background: #fff;
+        }
+
+        .charge-visual::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(180deg, rgba(0,16,64,0.12) 20%, rgba(0,16,64,0.82) 100%);
+        }
+
+        .charge-visual figcaption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            padding: 28px 26px 24px;
+            color: #fff;
+            text-align: left;
+        }
+
+        .charge-visual span {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.7rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--sky);
+        }
+
+        .charge-visual h3 {
+            font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .charge-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .charge-stats b {
+            display: inline-flex;
+            flex-direction: column;
+            gap: 2px;
+            min-width: 88px;
+            padding: 10px 12px;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.1);
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+        }
+
+        .charge-stats b small {
+            font-size: 0.64rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .charge-finder {
+            background: var(--bg-soft);
+            border-radius: var(--radius);
+            padding: 22px 20px 18px;
+            display: flex;
+            flex-direction: column;
+            min-height: 520px;
+        }
+
+        .charge-search-wrap {
+            position: relative;
+        }
+
+        .charge-search-wrap svg {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            width: 18px;
+            height: 18px;
+            transform: translateY(-50%);
+            color: var(--muted);
+            pointer-events: none;
+        }
+
+        .charge-search {
+            width: 100%;
+            background: #fff;
+            border: 0;
+            border-radius: 16px;
+            padding: 16px 44px 16px 46px;
+            font-family: inherit;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--navy);
+            outline: none;
+            text-align: left;
+            box-shadow: 0 1px 2px rgba(0, 16, 64, 0.04);
+        }
+
+        .charge-search:focus {
+            box-shadow: 0 0 0 4px var(--glow);
+        }
+
+        .charge-search::-webkit-search-cancel-button { display: none; }
+
+        .charge-clear {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 28px;
+            height: 28px;
+            border: 0;
+            border-radius: 99px;
+            background: var(--bg-soft);
+            color: var(--navy);
+            font-size: 1.1rem;
+            line-height: 1;
+            display: none;
+        }
+
+        .charge-search-wrap.has-query .charge-clear { display: grid; place-items: center; }
+
+        .charge-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .charge-chips button {
+            border: 0;
+            background: #fff;
+            color: var(--navy);
+            font-family: inherit;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 999px;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+
+        .charge-chips button:hover { transform: translateY(-1px); }
+        .charge-chips button.is-on {
+            background: var(--navy);
+            color: #fff;
+        }
+
+        .charge-filters {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 10px;
+            margin-top: 14px;
+            align-items: end;
+        }
+
+        .charge-filters label {
+            display: grid;
+            gap: 6px;
+            margin: 0;
+        }
+
+        .charge-filters .lbl {
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .charge-seg {
+            display: flex;
+            background: #fff;
+            border-radius: 12px;
+            padding: 4px;
+            gap: 2px;
+        }
+
+        .charge-seg button {
+            flex: 1;
+            border: 0;
+            background: transparent;
+            color: var(--muted);
+            font-family: inherit;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 8px 6px;
+            border-radius: 9px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .charge-seg button.is-on {
+            background: var(--navy);
+            color: #fff;
+        }
+
+        .charge-filters select {
+            width: 100%;
+            appearance: none;
+            background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23001040' d='M1 1.5 6 6.5 11 1.5'/%3E%3C/svg%3E") no-repeat right 14px center;
+            border: 0;
+            border-radius: 12px;
+            padding: 11px 36px 11px 14px;
+            font-family: inherit;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--navy);
+            outline: none;
+        }
+
+        .charge-filters select:focus,
+        .charge-seg:focus-within {
+            box-shadow: 0 0 0 4px var(--glow);
+        }
+
+        .charge-count {
+            text-align: left;
+            color: var(--muted);
+            font-size: 0.82rem;
+            margin: 16px 4px 8px;
+            min-height: 1.2em;
+        }
+
+        .charge-count strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .charge-results {
+            flex: 1;
+            max-height: 340px;
+            overflow: auto;
+            padding-right: 2px;
+        }
+
+        .charge-list {
+            display: grid;
+            gap: 8px;
+        }
+
+        .charge-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 8px 16px;
+            align-items: center;
+            background: #fff;
+            border-radius: 14px;
+            padding: 13px 16px;
+            text-align: left;
+            animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+            animation-delay: calc(var(--i, 0) * 40ms);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .charge-row:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(0, 16, 64, 0.06);
+        }
+
+        .charge-row h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+        }
+
+        .charge-row .meta {
+            font-size: 0.75rem;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        .charge-row mark {
+            background: rgba(37, 170, 225, 0.28);
+            color: inherit;
+            border-radius: 3px;
+            padding: 0 1px;
+        }
+
+        .charge-row .end {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 6px;
+        }
+
+        .charge-pills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 4px;
+        }
+
+        .charge-pills span {
+            font-size: 0.64rem;
+            font-weight: 600;
+            padding: 3px 7px;
+            border-radius: 999px;
+            background: var(--bg-soft);
+            color: var(--navy);
+        }
+
+        .charge-row .acts {
+            display: flex;
+            gap: 10px;
+        }
+
+        .charge-row a.tel,
+        .charge-row a.map {
+            color: var(--sky-deep);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .charge-row a.tel:hover,
+        .charge-row a.map:hover { color: var(--navy); }
+
+        .charge-hint,
+        .charge-empty {
+            text-align: left;
+            color: var(--muted);
+            padding: 22px 8px 8px;
+            font-size: 0.95rem;
+        }
+
+        .charge-hint small,
+        .charge-empty small {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.82rem;
+        }
+
+        .charge-empty a,
+        .charge-hint a {
+            color: var(--sky-deep);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .charge-empty a:hover,
+        .charge-hint a:hover { color: var(--navy); }
+
+        .fine {
+            text-align: center;
+            margin: 8px auto 0;
+            max-width: 46ch;
+            font-size: 0.78rem;
+            color: var(--muted);
+        }
+
+        /* Finance */
+        .bank-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+            gap: 6px;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        .bank-card {
+            min-height: 100px;
+            padding: 1rem 0.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border-radius: 16px;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background 0.35s;
+        }
+
+        .bank-card:hover {
+            transform: translateY(-4px);
+            background: #fff;
+        }
+
+        .bank-card img {
+            height: 34px;
+            max-width: 100px;
+            object-fit: contain;
+            filter: grayscale(1);
+            opacity: 0.5;
+            transition: filter 0.4s, opacity 0.4s, transform 0.4s;
+        }
+
+        .bank-card:hover img {
+            filter: none;
+            opacity: 1;
+            transform: scale(1.06);
+        }
+
+        .bank-card span {
+            font-size: 0.66rem;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        /* About */
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1.15fr 0.95fr;
+            gap: 40px 40px;
+            align-items: center;
+        }
+
+        .about-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            align-items: end;
+        }
+
+        .about-gallery .about-photo:nth-child(2) {
+            margin-bottom: 32px;
+        }
+
+        @keyframes floaty {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-14px); }
+        }
+
+        .about-photo {
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--hairline);
+            border-radius: var(--radius);
+            isolation: isolate;
+            will-change: transform;
+        }
+
+        .about-photo img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            object-position: 50% 42%;
+            filter: saturate(0.95) contrast(1.04);
+            transform: scale(1.04);
+            animation: ken 20s ease-in-out infinite alternate;
+        }
+
+        .about-photo.g6 img {
+            object-position: 50% 48%;
+        }
+
+        .about-photo::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background: linear-gradient(180deg, rgba(0, 16, 64, 0.08) 28%, rgba(0, 16, 64, 0.78) 100%);
+        }
+
+        .about-photo figcaption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 3;
+            padding: 20px 18px 16px;
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.25;
+        }
+
+        .about-photo figcaption span {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.65rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--sky);
+        }
+
+        .about-copy {
+            max-width: 28ch;
+            font-size: 1.55rem;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+            line-height: 1.35;
+            margin: 12px 0 36px;
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 22px;
+            padding-top: 8px;
+            border-top: 1px solid var(--hairline);
+        }
+
+        .value h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .value p { color: var(--muted); font-size: 0.95rem; }
+
+        /* Contact */
+        .channels {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .channel {
+            display: grid;
+            grid-template-columns: 44px 1fr;
+            gap: 14px;
+            align-items: center;
+            background: #fff;
+            border-radius: 20px;
+            padding: 18px 20px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 10px 28px rgba(0, 16, 64, 0.05);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .channel:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 36px rgba(0, 16, 64, 0.08);
+        }
+
+        .channel i {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            background: var(--bg-soft);
+            color: var(--sky-deep);
+        }
+
+        .channel i svg { width: 18px; height: 18px; fill: currentColor; }
+
+        .channel b {
+            display: block;
+            font-size: 0.68rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .channel span {
+            display: block;
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: -0.02em;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-board {
+            background: #fff;
+            border-radius: 28px;
+            box-shadow: 0 16px 40px rgba(0, 16, 64, 0.06);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            min-height: 540px;
+        }
+
+        .contact-form { padding: 32px; }
+
+        .contact-form h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            margin-bottom: 6px;
+        }
+
+        .contact-form .hint {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        form { display: grid; gap: 14px; }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            background: var(--bg-soft);
+            border: 0;
+            border-radius: 12px;
+            color: var(--text);
+            padding: 12px 14px;
+            font-family: inherit;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            border: 1px solid transparent;
+        }
+
+        .contact-form select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23001040' d='M1 1.5 6 6.5 11 1.5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+
+        input:focus, textarea:focus, select:focus { box-shadow: 0 0 0 4px var(--glow); }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            border-color: var(--sky);
+            background: #fff;
+        }
+
+        textarea { min-height: 110px; resize: vertical; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 4px;
+            padding: 12px 22px;
+            border-radius: 999px;
+            border: 0;
+            text-decoration: none;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #fff;
+            background: var(--navy);
+            width: fit-content;
+            transition: background 0.2s;
+        }
+
+        .btn:hover { background: var(--sky-deep); }
+
+        .form-note {
+            font-size: 0.8rem;
+            color: var(--muted);
+            min-height: 1.2em;
+        }
+
+        .form-note.ok { color: var(--sky-deep); }
+        .form-note.err { color: #C4314B; }
+
+        .map-side {
+            position: relative;
+            background: var(--navy);
+            min-height: 100%;
+        }
+
+        .map-side iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(0.15) saturate(0.9);
+        }
+
+        .map-card {
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .map-card p {
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .map-card strong {
+            display: block;
+            margin-top: 2px;
+            font-size: 0.95rem;
+            letter-spacing: -0.02em;
+            text-transform: none;
+            color: var(--navy);
+        }
+
+        .map-card a {
+            flex-shrink: 0;
+            color: #fff;
+            background: var(--navy);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 999px;
+        }
+
+        .map-card a:hover { background: var(--sky-deep); }
+
+        footer {
+            background: var(--bg);
+            border-top: 1px solid var(--hairline);
+        }
+
+        .footer-bar {
+            display: flex;
+            align-items: center;
+            min-height: 84px;
+            gap: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            list-style: none;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--navy);
+            font-size: 0.78rem;
+            font-weight: 500;
+            opacity: 0.75;
+        }
+
+        .footer-links a:hover { opacity: 1; }
+
+        .footer-end {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer-social {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .footer-social a {
+            display: grid;
+            place-items: center;
+            width: 36px;
+            height: 36px;
+            color: var(--navy);
+            opacity: 0.72;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        .footer-social a:hover { opacity: 1; background: var(--bg-soft); }
+        .footer-social svg { width: 17px; height: 17px; fill: currentColor; }
+
+        .footer-mail {
+            color: var(--muted);
+            font-size: 0.78rem;
+            text-decoration: none;
+        }
+
+        .footer-mail:hover { color: var(--sky-deep); }
+
+        .footer-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px 24px;
+            flex-wrap: wrap;
+            padding: 14px 0 22px;
+            border-top: 1px solid var(--hairline);
+            font-size: 0.72rem;
+            color: var(--muted);
+        }
+
+        .footer-meta .tag {
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--sky);
+            font-weight: 600;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            animation: rise-in 0.95s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+            animation-delay: var(--d, 0s);
+        }
+
+        @keyframes rise-in {
+            from { opacity: 0; transform: translateY(36px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .about-gallery .about-photo.visible:nth-child(1) {
+            animation: rise-in 0.95s cubic-bezier(0.22, 1, 0.36, 1) backwards, floaty 7.5s ease-in-out 1s infinite;
+        }
+
+        .about-gallery .about-photo.visible:nth-child(2) {
+            animation: rise-in 0.95s cubic-bezier(0.22, 1, 0.36, 1) backwards, floaty 8.5s ease-in-out 1.1s infinite;
+        }
+
+        @media (max-width: 960px) {
+            :root { --nav-h: 64px; }
+            .wrap { width: min(1120px, calc(100% - 28px)); }
+            .nav { gap: 12px; }
+
+            .hero-mosaic {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                min-height: 0;
+                margin-top: 32px;
+                gap: 10px;
+            }
+            .hero-stage {
+                grid-column: 1 / -1;
+                grid-row: auto;
+                min-height: 240px;
+            }
+            .hero-tile { min-height: 168px; }
+            .hero-stage .copy, .hero-tile .copy { padding: 18px 16px 16px; }
+            .hero-stage h2 { font-size: 1.45rem; }
+            .hero-tile h3 { font-size: 1.05rem; }
+
+            .brand-grid, .about-layout, .charge-layout, .contact-board {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .about-copy { max-width: none; font-size: 1.22rem; }
+            .about-gallery { gap: 10px; }
+            .about-gallery .about-photo:nth-child(1),
+            .about-gallery .about-photo:nth-child(2),
+            .about-gallery .about-photo.visible:nth-child(1),
+            .about-gallery .about-photo.visible:nth-child(2) {
+                animation: none;
+                margin-bottom: 0;
+            }
+            .hero-stage img,
+            .hero-tile img,
+            .brand-photo,
+            .about-photo img,
+            .charge-visual img {
+                animation: none;
+                transform: none;
+            }
+            .about-photo img { aspect-ratio: 4 / 5; }
+
+            .charge-finder { order: -1; min-height: 0; }
+            .charge-visual { min-height: 240px; }
+            .charge-filters { grid-template-columns: 1fr; }
+            .charge-results { max-height: 360px; }
+            .charge-chips {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 4px;
+            }
+            .charge-search, .charge-filters select { font-size: 16px; }
+
+            .brand-card.aion { grid-row: auto; min-height: 280px; }
+            .brand-card { min-height: 200px; }
+            .brand-grid { min-height: 0; gap: 10px; }
+
+            .menu-toggle { display: block; min-width: 44px; min-height: 44px; }
+            .nav-more { display: list-item; }
+            .nav-end .nav-cta {
+                display: inline-flex;
+                padding: 8px 12px;
+                font-size: 0.72rem;
+            }
+            .nav-links {
+                position: absolute;
+                top: calc(var(--nav-h) + env(safe-area-inset-top));
+                left: 0;
+                right: 0;
+                background: rgba(255,255,255,0.98);
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                padding: 8px 24px calc(18px + env(safe-area-inset-bottom));
+                display: none;
+                border-bottom: 1px solid var(--hairline);
+                max-height: calc(100dvh - var(--nav-h) - env(safe-area-inset-top));
+                overflow: auto;
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a {
+                width: 100%;
+                padding: 14px 0;
+                font-size: 1rem;
+                min-height: 44px;
+            }
+            .nav-links a::after { display: none; }
+            header .brand-lockup { gap: 8px; }
+            header .brand-lockup .logo-img { height: 42px; }
+            header .brand-lockup .logo-img.cg { height: 16px; }
+            header .lockup-rule { height: 24px; }
+            .footer-bar {
+                flex-wrap: wrap;
+                min-height: auto;
+                padding: 18px 0 calc(8px + env(safe-area-inset-bottom));
+            }
+            .footer-links { width: 100%; order: 3; padding: 6px 0 10px; gap: 12px 16px; }
+            .footer-links a { padding: 8px 0; }
+            .footer-mail { display: none; }
+            .btn { min-height: 48px; padding: 14px 22px; }
+            .channels { grid-template-columns: 1fr; }
+            .contact-form { padding: 22px 18px; }
+            .contact-board { min-height: 0; }
+            .map-side { min-height: 300px; }
+            .map-side iframe { position: relative; min-height: 300px; }
+            .orb { opacity: 0.45; }
+            body.menu-open { overflow: hidden; }
+        }
+
+        @media (max-width: 560px) {
+            .hero { padding: 36px 0 24px; }
+            .hero h1 { font-size: 2.35rem; }
+            .hero-sub { font-size: 1rem; }
+            .text-links { gap: 4px 16px; }
+            .text-links a { padding: 10px 0; font-size: 0.98rem; }
+            section { padding: 56px 0; }
+            #charging { padding: 56px 0 64px; }
+            .section-head { margin-bottom: 28px; }
+            .section-head h2 { font-size: 1.85rem; }
+            .hero-stage { min-height: 220px; }
+            .hero-tile { min-height: 150px; }
+            .about-gallery { grid-template-columns: 1fr; max-width: 320px; }
+            .charge-row { grid-template-columns: 1fr; }
+            .charge-row .end { align-items: flex-start; }
+            .charge-pills { justify-content: flex-start; }
+            .bank-card { min-height: 88px; }
+            .form-row { grid-template-columns: 1fr; }
+            .btn { width: 100%; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-on-scroll { opacity: 1; animation: none; }
+            .orb, .hero h1 em,
+            .hero-stage img, .hero-tile img, .brand-photo, .about-photo img, .charge-visual img,
+            .about-gallery .about-photo, .charge-row { animation: none !important; }
+            .hero-stage:hover, .hero-tile:hover, .brand-card:hover { transform: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrap nav">
+            <a class="brand-lockup" href="#home" aria-label="Panda Wheels — CG Motors">
+                <img class="logo-img" src="assets/panda-wheels.png" alt="Panda Wheels">
+                <span class="lockup-rule" aria-hidden="true"></span>
+                <img class="logo-img cg" src="assets/cg-motors.png" alt="CG Motors">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#lineup">Lineup</a></li>
+                <li><a href="#charging">Charging</a></li>
+                <li><a href="emi.html">Finance</a></li>
+                <li><a href="#about">About</a></li>
+                <li class="nav-more"><a href="request.html">Request</a></li>
+                <li class="nav-more"><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-end">
+                <a class="nav-cta" href="request.html">Request a Vehicle</a>
+                <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="orb orb-a" aria-hidden="true"></div>
+            <div class="orb orb-b" aria-hidden="true"></div>
+            <div class="wrap">
+                <p class="kicker animate-on-scroll">Growing Together</p>
+                <h1 class="animate-on-scroll">Drive the <em>Future.</em></h1>
+                <p class="hero-sub animate-on-scroll">Panda Wheels. An authorised partner of CG Motors in Panipokhari, Kathmandu.</p>
+                <div class="text-links animate-on-scroll">
+                    <a href="#lineup">Explore the lineup <span>›</span></a>
+                    <a href="request.html">Request a vehicle <span>›</span></a>
+                    <a href="#charging">Find a charger <span>›</span></a>
+                </div>
+                <div class="hero-mosaic">
+                    <a class="hero-stage animate-on-scroll" href="#lineup">
+                        <img src="assets/cars/xpeng-g6.jpg" alt="XPENG G6">
+                        <div class="copy">
+                            <p>Lineup</p>
+                            <h2>AION. XPENG. RIDDARA.</h2>
+                            <span>See the lineup ›</span>
+                        </div>
+                    </a>
+                    <a class="hero-tile photo animate-on-scroll" href="#charging">
+                        <img src="assets/cars/charging.jpg" alt="CG Motors charging">
+                        <div class="copy">
+                            <p>Charging</p>
+                            <h3>GB/T and CCS2, nationwide.</h3>
+                            <span>Find a charger ›</span>
+                        </div>
+                    </a>
+                    <a class="hero-tile photo animate-on-scroll" href="emi.html">
+                        <img src="assets/cars/riddara-rd6.jpg" alt="">
+                        <div class="copy">
+                            <p>Finance</p>
+                            <h3>Pay over time with Nepal’s banks.</h3>
+                            <span>Estimate EMI ›</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="lineup">
+            <div class="wrap">
+                <div class="section-head">
+                    <p class="kicker animate-on-scroll">Lineup</p>
+                    <h2 class="animate-on-scroll">Three names. One showroom.</h2>
+                    <p class="lead animate-on-scroll">AION, XPENG, and RIDDARA — chosen, financed, and cared for in Panipokhari.</p>
+                </div>
+                <div class="brand-grid">
+                    <a class="brand-card aion animate-on-scroll" href="https://gac.cgmotors.com.np" target="_blank" rel="noopener noreferrer">
+                        <img class="brand-photo" src="assets/cars/aion-v.jpg" alt="AION V">
+                        <div class="brand-copy">
+                            <h3>AION</h3>
+                            <p class="tagline">Intelligent design for Nepal’s roads.</p>
+                            <span class="go">Visit site <span>›</span></span>
+                        </div>
+                    </a>
+                    <a class="brand-card animate-on-scroll" href="https://xpeng.cgmotors.com.np" target="_blank" rel="noopener noreferrer">
+                        <img class="brand-photo" src="assets/cars/xpeng-g6.jpg" alt="XPENG G6">
+                        <div class="brand-copy">
+                            <h3>XPENG</h3>
+                            <p class="tagline">Smart performance. Pure driving.</p>
+                            <span class="go">Visit site <span>›</span></span>
+                        </div>
+                    </a>
+                    <a class="brand-card animate-on-scroll" href="https://radar.cgmotors.com.np" target="_blank" rel="noopener noreferrer">
+                        <img class="brand-photo" src="assets/cars/riddara-rd6.jpg" alt="RIDDARA RD6">
+                        <div class="brand-copy">
+                            <p class="group">Geely Auto Group</p>
+                            <h3>RIDDARA</h3>
+                            <p class="tagline">Capability for work and life.</p>
+                            <span class="go">Visit site <span>›</span></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="text-links" style="margin-top: 28px;">
+                    <a href="request.html">Request a vehicle <span>›</span></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="charging">
+            <div class="wrap">
+                <div class="section-head">
+                    <p class="kicker animate-on-scroll">Charging</p>
+                    <h2 class="animate-on-scroll">Find a charger.</h2>
+                    <p class="lead animate-on-scroll">Search a town, tap a place, or filter by connector. Assigned CG Motors locations across Nepal.</p>
+                </div>
+                <div class="charge-layout">
+                    <figure class="charge-visual animate-on-scroll">
+                        <img class="is-on" src="assets/charging/aion.jpg" alt="AION V">
+                        <img src="assets/cars/charging.jpg" alt="RIDDARA at a charger">
+                        <img src="assets/cars/xpeng-g6.jpg" alt="XPENG G6">
+                        <figcaption>
+                            <span>Network</span>
+                            <h3>GB/T and CCS2, nationwide.</h3>
+                            <div class="charge-stats">
+                                <b id="charge-stat-n">—<small>Locations</small></b>
+                                <b id="charge-stat-gbt">—<small>GB/T</small></b>
+                                <b id="charge-stat-ccs">—<small>CCS2</small></b>
+                            </div>
+                        </figcaption>
+                        <div class="charge-dots" id="charge-dots"></div>
+                    </figure>
+                    <div class="charge-finder animate-on-scroll">
+                        <div class="charge-search-wrap" id="charge-search-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <circle cx="11" cy="11" r="7"></circle>
+                                <path d="M20 20l-3.5-3.5"></path>
+                            </svg>
+                            <input class="charge-search" id="charge-search" type="search" placeholder="Town, district, or hotel…" autocomplete="off" aria-label="Search charging locations">
+                            <button class="charge-clear" id="charge-clear" type="button" aria-label="Clear search">×</button>
+                        </div>
+                        <div class="charge-chips" id="charge-chips">
+                            <button type="button" data-q="Kathmandu">Kathmandu</button>
+                            <button type="button" data-q="Pokhara">Pokhara</button>
+                            <button type="button" data-q="Sindhuli">Sindhuli</button>
+                            <button type="button" data-q="Hetauda">Hetauda</button>
+                            <button type="button" data-q="Bhaktapur">Bhaktapur</button>
+                            <button type="button" data-q="Ilam">Ilam</button>
+                            <button type="button" data-q="Butwal">Butwal</button>
+                        </div>
+                        <div class="charge-filters">
+                            <label>
+                                <span class="lbl">Connector</span>
+                                <div class="charge-seg" id="charge-type" role="group" aria-label="Connector"></div>
+                            </label>
+                            <label>
+                                <span class="lbl">Province</span>
+                                <select id="charge-province" aria-label="Province"></select>
+                            </label>
+                        </div>
+                        <p class="charge-count" id="charge-count"></p>
+                        <div class="charge-results" id="charge-results"></div>
+                        <p class="charge-empty" id="charge-empty" hidden></p>
+                    </div>
+                </div>
+                <p class="fine" style="margin-top: 22px;">Locations and availability may change. Call ahead when you can.</p>
+            </div>
+        </section>
+
+        <section id="finance">
+            <div class="wrap">
+                <div class="section-head">
+                    <p class="kicker animate-on-scroll">Finance</p>
+                    <h2 class="animate-on-scroll">Pay over time.</h2>
+                    <p class="lead animate-on-scroll">Competitive rates from Nepal’s banks. One conversation at Panda Wheels.</p>
+                </div>
+                <div class="bank-grid">
+                    <article class="bank-card"><img src="assets/banks/nabil.png" alt="" onerror="this.remove()"><span>Nabil Bank</span></article>
+                    <article class="bank-card"><img src="assets/banks/nic-asia.svg" alt="" onerror="this.remove()"><span>NIC Asia</span></article>
+                    <article class="bank-card"><img src="assets/banks/global-ime.png" alt="" onerror="this.remove()"><span>Global IME</span></article>
+                    <article class="bank-card"><img src="assets/banks/himalayan.png" alt="" onerror="this.remove()"><span>Himalayan Bank</span></article>
+                    <article class="bank-card"><img src="assets/banks/nmb.png" alt="" onerror="this.remove()"><span>NMB Bank</span></article>
+                    <article class="bank-card"><img src="assets/banks/nimb.png" alt="" onerror="this.remove()"><span>Nepal Investment Mega</span></article>
+                    <article class="bank-card"><img src="assets/banks/sanima.png" alt="" onerror="this.remove()"><span>Sanima Bank</span></article>
+                    <article class="bank-card"><img src="assets/banks/kumari.gif" alt="" onerror="this.remove()"><span>Kumari Bank</span></article>
+                    <article class="bank-card"><img src="assets/banks/prabhu.jpg" alt="" onerror="this.remove()"><span>Prabhu Bank</span></article>
+                    <article class="bank-card"><img src="assets/banks/everest.png" alt="" onerror="this.remove()"><span>Everest Bank</span></article>
+                    <article class="bank-card"><img src="assets/banks/laxmi-sunrise.png" alt="" onerror="this.remove()"><span>Laxmi Sunrise</span></article>
+                    <article class="bank-card"><img src="assets/banks/citizens.png" alt="" onerror="this.remove()"><span>Citizens Bank</span></article>
+                    <article class="bank-card"><img src="assets/banks/prime.jpg" alt="" onerror="this.remove()"><span>Prime Commercial</span></article>
+                    <article class="bank-card"><img src="assets/banks/standard-chartered.png" alt="" onerror="this.remove()"><span>Standard Chartered</span></article>
+                    <article class="bank-card"><img src="assets/banks/nepal-sbi.svg" alt="" onerror="this.remove()"><span>Nepal SBI</span></article>
+                    <article class="bank-card"><img src="assets/banks/rastriya-banijya.png" alt="" onerror="this.remove()"><span>Rastriya Banijya</span></article>
+                    <article class="bank-card"><img src="assets/banks/adbl.jpg" alt="" onerror="this.remove()"><span>ADBL</span></article>
+                </div>
+                <p class="fine" style="margin-top: 28px;">Rates and approval are set by each bank.</p>
+                <div class="text-links" style="margin-top: 18px;">
+                    <a href="emi.html">EMI calculator <span>›</span></a>
+                    <a href="https://wa.me/9779761633331?text=I%27d%20like%20help%20with%20vehicle%20finance" target="_blank" rel="noopener noreferrer">Enquire about finance <span>›</span></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="wrap">
+                <div class="about-layout">
+                    <div class="about-gallery">
+                        <figure class="about-photo animate-on-scroll">
+                            <img src="assets/about/xpeng-day.jpg" alt="XPENG handover at Panda Wheels, Panipokhari">
+                            <figcaption>
+                                <span>XPENG</span>
+                                Explorer of future mobility.
+                            </figcaption>
+                        </figure>
+                        <figure class="about-photo g6 animate-on-scroll">
+                            <img src="assets/about/xpeng-g6.jpg" alt="Orange XPENG G6 at Panda Wheels, Panipokhari">
+                            <figcaption>
+                                <span>G6</span>
+                                Leading the future of AI mobility.
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="about-text animate-on-scroll">
+                        <p class="kicker">About</p>
+                        <p class="about-copy">Panda Wheels is an authorised partner of CG Motors in Panipokhari. A house of AION, XPENG, and RIDDARA — simpler to choose, finance, and live with.</p>
+                        <div class="values">
+                            <article class="value animate-on-scroll">
+                                <h3>Trust</h3>
+                                <p>Authorised by CG Motors. Honest advice. Care that lasts.</p>
+                            </article>
+                            <article class="value animate-on-scroll">
+                                <h3>Innovation</h3>
+                                <p>Modern cabins. Quiet confidence on Nepal’s roads.</p>
+                            </article>
+                            <article class="value animate-on-scroll">
+                                <h3>Service</h3>
+                                <p>From Panipokhari to every mile after.</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="wrap">
+                <div class="section-head" style="text-align: left; margin-bottom: 28px;">
+                    <p class="kicker animate-on-scroll">Contact</p>
+                    <h2 class="animate-on-scroll">Get in Touch</h2>
+                    <p class="lead animate-on-scroll" style="margin: 10px 0 0; max-width: 46ch;">Visit us in Panipokhari, or send a note. We reply on WhatsApp.</p>
+                </div>
+                <div class="channels">
+                    <a class="channel animate-on-scroll" href="https://wa.me/9779761633331" target="_blank" rel="noopener noreferrer">
+                        <i aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2.2 21.8l4.8-1.2A10 10 0 1 0 12 2zm5.8 14.4c-.3.7-1.3 1.3-2.1 1.5-1.1.2-2.5.1-5.1-1.1-3.2-1.4-5.3-4.8-5.4-5-.2-.3-1.6-2.1-1.6-4s1-2.8 1.4-3.2c.3-.3.8-.5 1.3-.5h.5c.4 0 .6 0 .9.7.3.8 1.1 2.7 1.2 2.9.1.2.2.4 0 .7l-.5.6c-.2.2-.4.4-.2.7.2.4.9 1.5 1.9 2.4 1.3 1.1 2.4 1.5 2.8 1.7.3.1.5.1.7-.1l.7-.8c.2-.3.5-.2.8-.1.3.1 2 .9 2.3 1.1.3.2.5.3.6.5.1.3 0 .8-.2 1.4z"/></svg>
+                        </i>
+                        <span>
+                            <b>WhatsApp</b>
+                            <span>+977 9761633331</span>
+                        </span>
+                    </a>
+                    <a class="channel animate-on-scroll" href="mailto:info.pandawheels@gmail.com">
+                        <i aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 6.5A1.5 1.5 0 0 1 5.5 5h13A1.5 1.5 0 0 1 20 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5zm2.1.5 5.9 4.1L17.9 7zM18 8.4l-5.6 3.9a.8.8 0 0 1-.8 0L6 8.4V17h12z"/></svg>
+                        </i>
+                        <span>
+                            <b>Email</b>
+                            <span>info.pandawheels@gmail.com</span>
+                        </span>
+                    </a>
+                    <a class="channel animate-on-scroll" href="https://www.google.com/maps/search/?api=1&query=Panipokhari%2C%20Kathmandu%2003" target="_blank" rel="noopener noreferrer">
+                        <i aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.8a7.2 7.2 0 0 0-7.2 7.2c0 5.3 7.2 11.2 7.2 11.2s7.2-5.9 7.2-11.2A7.2 7.2 0 0 0 12 2.8zm0 9.7a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+                        </i>
+                        <span>
+                            <b>Showroom</b>
+                            <span>Panipokhari, Kathmandu 03</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="contact-board animate-on-scroll">
+                    <div class="contact-form">
+                        <h3>Send a message</h3>
+                        <p class="hint">Opens WhatsApp with your note filled in.</p>
+                        <form id="contact-form" novalidate>
+                            <div class="form-row">
+                                <div>
+                                    <label for="name">Name</label>
+                                    <input id="name" name="name" type="text" autocomplete="name" required>
+                                </div>
+                                <div>
+                                    <label for="phone">Phone</label>
+                                    <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="email">Email</label>
+                                <input id="email" name="email" type="email" autocomplete="email" required>
+                            </div>
+                            <div>
+                                <label for="topic">I’m writing about</label>
+                                <select id="topic" name="topic">
+                                    <option value="A vehicle">A vehicle</option>
+                                    <option value="A visit">A visit</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Charging">Charging</option>
+                                    <option value="Something else">Something else</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required placeholder="How can we help?"></textarea>
+                            </div>
+                            <button class="btn" type="submit">Send on WhatsApp</button>
+                            <p class="form-note" id="form-note" role="status"></p>
+                        </form>
+                    </div>
+                    <div class="map-side">
+                        <iframe
+                            title="Panda Wheels — Panipokhari, Kathmandu"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="https://maps.google.com/maps?q=Panipokhari%2C%20Kathmandu%2003&z=16&output=embed">
+                        </iframe>
+                        <div class="map-card">
+                            <p>Showroom<strong>Panipokhari, Kathmandu 03</strong></p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Panipokhari%2C%20Kathmandu%2003" target="_blank" rel="noopener noreferrer">Open map</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap footer-bar">
+            <a class="brand-lockup" href="#home" aria-label="Panda Wheels — CG Motors">
+                <img class="logo-img" src="assets/panda-wheels.png" alt="Panda Wheels">
+                <span class="lockup-rule" aria-hidden="true"></span>
+                <img class="logo-img cg" src="assets/cg-motors.png" alt="CG Motors">
+            </a>
+            <ul class="footer-links">
+                <li><a href="#lineup">Lineup</a></li>
+                <li><a href="#charging">Charging</a></li>
+                <li><a href="emi.html">Finance</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="request.html">Request</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="footer-end">
+                <div class="footer-social">
+                    <a href="https://www.tiktok.com/@panda.wheels4" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3h2.2c.2 1.9 1.4 3.5 3.3 4v2.2c-1.2.1-2.3-.2-3.3-.8v6.7c0 3.4-2.7 6.1-6.2 6.1S4.3 18.5 4.3 15.1c0-3.3 2.6-6 5.9-6.1v2.3c-2 .1-3.6 1.8-3.6 3.8s1.7 3.7 3.8 3.7 3.6-1.5 3.8-3.4V3z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/panda.wheels4" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 8.5V6.8c0-.7.5-1.3 1.2-1.3H17V3h-2.1C12.4 3 11 4.5 11 6.5v2H9v2.7h2V21h3.5v-9.8h2.3l.5-2.7h-2.8z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/panda.wheels4/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.2A4.8 4.8 0 1 0 16.8 12 4.8 4.8 0 0 0 12 7.2zm0 7.9A3.1 3.1 0 1 1 15.1 12 3.1 3.1 0 0 1 12 15.1zm6.2-8.2a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1zM12 4.5c-1.6 0-1.8 0-2.5.1a5 5 0 0 0-3.4 2 5 5 0 0 0-1.1 2.4C5 9.6 5 9.8 5 12s0 2.4.1 3.1a5 5 0 0 0 1.1 2.4 5 5 0 0 0 3.4 1.9c.7.1.9.1 2.5.1s1.8 0 2.5-.1a5 5 0 0 0 3.4-1.9 5 5 0 0 0 1.1-2.4c.1-.7.1-.9.1-3.1s0-2.4-.1-3.1a5 5 0 0 0-1.1-2.4 5 5 0 0 0-3.4-2C13.8 4.5 13.6 4.5 12 4.5zm0 1.8c1.6 0 1.8 0 2.4.1a3.2 3.2 0 0 1 2.1 1.2 3.2 3.2 0 0 1 .7 1.6c.1.6.1.8.1 2.4s0 1.8-.1 2.4a3.2 3.2 0 0 1-.7 1.6 3.2 3.2 0 0 1-2.1 1.2c-.6.1-.8.1-2.4.1s-1.8 0-2.4-.1a3.2 3.2 0 0 1-2.1-1.2 3.2 3.2 0 0 1-.7-1.6c-.1-.6-.1-.8-.1-2.4s0-1.8.1-2.4a3.2 3.2 0 0 1 .7-1.6 3.2 3.2 0 0 1 2.1-1.2c.6-.1.8-.1 2.4-.1z"/></svg>
+                    </a>
+                </div>
+                <a class="footer-mail" href="mailto:info.pandawheels@gmail.com">info.pandawheels@gmail.com</a>
+                <a class="nav-cta" href="request.html">Request a Vehicle</a>
+            </div>
+        </div>
+        <div class="wrap footer-meta">
+            <span>© 2026 Panda Wheels · Authorised CG Motors partner</span>
+            <span class="tag">Growing Together</span>
+            <span>Panipokhari, Kathmandu 03</span>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.bank-card').forEach((el) => el.classList.add('animate-on-scroll'));
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+
+        const stagger = (nodes, step, start = 0) => {
+            nodes.forEach((el, i) => el.style.setProperty('--d', `${start + i * step}ms`));
+        };
+        stagger(document.querySelectorAll('.hero .wrap > .animate-on-scroll'), 90);
+        stagger(document.querySelectorAll('.hero-mosaic > *'), 110, 280);
+        stagger(document.querySelectorAll('.brand-grid > *'), 120);
+        stagger(document.querySelectorAll('.about-gallery > *'), 140);
+        stagger(document.querySelectorAll('.values > *'), 100);
+        stagger(document.querySelectorAll('.channels > *'), 80);
+        stagger(document.querySelectorAll('.bank-card'), 40);
+
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        if (!reduceMotion && finePointer) {
+            document.querySelectorAll('.hero-stage, .hero-tile, .brand-card').forEach((el) => {
+                el.addEventListener('mousemove', (event) => {
+                    const box = el.getBoundingClientRect();
+                    const x = (event.clientX - box.left) / box.width - 0.5;
+                    const y = (event.clientY - box.top) / box.height - 0.5;
+                    el.style.transform = `perspective(1100px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateY(-6px)`;
+                });
+                el.addEventListener('mouseleave', () => {
+                    el.style.transform = '';
+                });
+            });
+        }
+
+        const links = document.querySelectorAll('.nav-links a');
+        const sections = [...document.querySelectorAll('main section[id]')];
+
+        const setActive = () => {
+            const y = window.scrollY + 100;
+            let current = 'home';
+            sections.forEach((sec) => {
+                if (y >= sec.offsetTop) current = sec.id;
+            });
+            links.forEach((a) => {
+                a.classList.toggle('active', a.getAttribute('href') === `#${current}`);
+            });
+        };
+
+        window.addEventListener('scroll', setActive, { passive: true });
+        setActive();
+
+        const header = document.querySelector('header');
+        const onScrollChrome = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+        window.addEventListener('scroll', onScrollChrome, { passive: true });
+        onScrollChrome();
+
+        const toggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.nav-links');
+        const setMenu = (open) => {
+            nav.classList.toggle('open', open);
+            toggle.classList.toggle('is-open', open);
+            toggle.setAttribute('aria-expanded', String(open));
+            document.body.classList.toggle('menu-open', open);
+        };
+        toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+        links.forEach((a) => a.addEventListener('click', () => setMenu(false)));
+
+        const form = document.getElementById('contact-form');
+        const note = document.getElementById('form-note');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = form.name.value.trim();
+            const email = form.email.value.trim();
+            const phone = form.phone.value.trim();
+            const topic = form.topic.value;
+            const message = form.message.value.trim();
+            if (!name || !email || !message) {
+                note.textContent = 'Please add your name, email, and message.';
+                note.className = 'form-note err';
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                note.textContent = 'Please enter a valid email address.';
+                note.className = 'form-note err';
+                return;
+            }
+            const text = [
+                'Panda Wheels enquiry',
+                `Name: ${name}`,
+                `Email: ${email}`,
+                phone ? `Phone: ${phone}` : '',
+                `About: ${topic}`,
+                message ? `\n${message}` : ''
+            ].filter(Boolean).join('\n');
+            window.location.href = `https://wa.me/9779761633331?text=${encodeURIComponent(text)}`;
+            note.textContent = 'Opening WhatsApp…';
+            note.className = 'form-note ok';
+        });
+
+        (function () {
+            const slides = [...document.querySelectorAll('.charge-visual img')];
+            const dots = document.getElementById('charge-dots');
+            if (!slides.length || !dots) return;
+            dots.innerHTML = slides.map((_, i) => `<button type="button" aria-label="Photo ${i + 1}"${i === 0 ? ' class="is-on"' : ''}></button>`).join('');
+            let index = 0;
+            const show = (next) => {
+                index = (next + slides.length) % slides.length;
+                slides.forEach((img, i) => img.classList.toggle('is-on', i === index));
+                dots.querySelectorAll('button').forEach((btn, i) => btn.classList.toggle('is-on', i === index));
+            };
+            dots.addEventListener('click', (event) => {
+                const btn = event.target.closest('button');
+                if (btn) show([...dots.children].indexOf(btn));
+            });
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                setInterval(() => show(index + 1), 4500);
+            }
+        })();
+
+        (function () {
+            const provinces = ['Koshi', 'Madhesh', 'Bagmati', 'Gandaki', 'Lumbini', 'Karnali', 'Sudurpaschim'];
+            const generic = new Set(['dealer', 'operator', 'planned', 'network partner', 'new dealer', 'cgm', '']);
+            const esc = (value) => String(value).replace(/[&<>"']/g, (ch) => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            }[ch]));
+            const partner = (value) => {
+                const name = (value || '').trim();
+                if (generic.has(name.toLowerCase())) return '';
+                if (/^future$/i.test(name)) return 'Future Motors';
+                return name;
+            };
+            const highlight = (text, needle) => {
+                const q = (needle || '').trim();
+                if (!q) return esc(text);
+                const lower = String(text).toLowerCase();
+                const n = q.toLowerCase();
+                let out = '';
+                let i = 0;
+                while (i < text.length) {
+                    const at = lower.indexOf(n, i);
+                    if (at < 0) {
+                        out += esc(text.slice(i));
+                        break;
+                    }
+                    out += esc(text.slice(i, at)) + `<mark>${esc(text.slice(at, at + q.length))}</mark>`;
+                    i = at + q.length;
+                }
+                return out;
+            };
+
+            let stations = [];
+            let query = '';
+            let connector = 'All';
+
+            const provinceEl = document.getElementById('charge-province');
+            const typeEl = document.getElementById('charge-type');
+            const resultsEl = document.getElementById('charge-results');
+            const emptyEl = document.getElementById('charge-empty');
+            const countEl = document.getElementById('charge-count');
+            const searchEl = document.getElementById('charge-search');
+            const searchWrap = document.getElementById('charge-search-wrap');
+            const clearEl = document.getElementById('charge-clear');
+            const chipsEl = document.getElementById('charge-chips');
+
+            const filtered = () => {
+                const needle = query.trim().toLowerCase();
+                const province = provinceEl.value;
+                return stations.filter((station) => {
+                    if (province !== 'All' && station.province !== province) return false;
+                    if (connector !== 'All' && !(station.chargers || []).some((charger) => charger.type === connector)) return false;
+                    if (!needle) return true;
+                    return [station.location, station.district, station.province, station.operator, station.dealer]
+                        .join(' ')
+                        .toLowerCase()
+                        .includes(needle);
+                });
+            };
+
+            const syncChrome = () => {
+                searchWrap.classList.toggle('has-query', Boolean(query.trim()));
+                chipsEl.querySelectorAll('button').forEach((btn) => {
+                    btn.classList.toggle('is-on', query.trim().toLowerCase() === btn.dataset.q.toLowerCase());
+                });
+                typeEl.querySelectorAll('button').forEach((btn) => {
+                    btn.classList.toggle('is-on', btn.dataset.type === connector);
+                });
+            };
+
+            const row = (station, needle, i) => {
+                const who = partner(station.operator) || partner(station.dealer);
+                const pills = (station.chargers || []).map((charger) => {
+                    const count = charger.units > 1 ? ` ×${charger.units}` : '';
+                    return `<span>${esc(charger.type)} ${charger.kw} kW${count}</span>`;
+                }).join('');
+                const phone = (station.phone || '').replace(/\D/g, '');
+                const place = [station.district, station.province].filter(Boolean).join(' · ');
+                const mapQ = encodeURIComponent(`${station.location}, ${station.district || ''}, Nepal`.replace(/, ,/g, ','));
+                return `<article class="charge-row" style="--i:${i}">
+                    <div>
+                        <h4>${highlight(station.location, needle)}</h4>
+                        <p class="meta">${highlight(place, needle)}${who ? ` · ${highlight(who, needle)}` : ''}</p>
+                    </div>
+                    <div class="end">
+                        <div class="charge-pills">${pills}</div>
+                        <div class="acts">
+                            <a class="map" href="https://www.google.com/maps/search/?api=1&query=${mapQ}" target="_blank" rel="noopener noreferrer">Map ›</a>
+                            ${phone ? `<a class="tel" href="tel:+977${phone}">Call</a>` : ''}
+                        </div>
+                    </div>
+                </article>`;
+            };
+
+            const render = () => {
+                const needle = query.trim();
+                const province = provinceEl.value;
+                const browsing = !needle && province === 'All' && connector === 'All';
+                syncChrome();
+
+                if (browsing) {
+                    countEl.textContent = '';
+                    emptyEl.hidden = true;
+                    resultsEl.innerHTML = `<p class="charge-hint">Search a town, or tap a place above.<small>${stations.length} assigned locations across Nepal — results appear here.</small></p>`;
+                    return;
+                }
+
+                const list = filtered().sort((a, b) => a.location.localeCompare(b.location));
+                emptyEl.hidden = true;
+                if (!list.length) {
+                    const q = needle ? ` for “${esc(needle)}”` : '';
+                    countEl.textContent = '';
+                    resultsEl.innerHTML = `<p class="charge-empty">No locations${q}.<small>Visit <a href="https://cg-ev.com/charger-station" target="_blank" rel="noopener noreferrer">cg-ev.com/charger-station</a> for updated locations.</small></p>`;
+                    return;
+                }
+
+                const bits = [`<strong>${list.length}</strong> location${list.length === 1 ? '' : 's'}`];
+                if (needle) bits.push(`for “${esc(needle)}”`);
+                if (province !== 'All') bits.push(`in ${esc(province)}`);
+                if (connector !== 'All') bits.push(`· ${esc(connector)}`);
+                countEl.innerHTML = bits.join(' ');
+                resultsEl.innerHTML = `<div class="charge-list">${list.map((station, i) => row(station, needle, i)).join('')}</div>`;
+            };
+
+            fetch('assets/stations.json')
+                .then((res) => res.json())
+                .then((data) => {
+                    stations = (Array.isArray(data) ? data : []).filter((station) => station.assigned);
+                    const gbt = stations.reduce((n, station) => n + (station.chargers || []).filter((c) => c.type === 'GB/T').reduce((a, c) => a + (c.units || 1), 0), 0);
+                    const ccs = stations.reduce((n, station) => n + (station.chargers || []).filter((c) => c.type === 'CCS2').reduce((a, c) => a + (c.units || 1), 0), 0);
+                    document.getElementById('charge-stat-n').innerHTML = `${stations.length}<small>Locations</small>`;
+                    document.getElementById('charge-stat-gbt').innerHTML = `${gbt}<small>GB/T</small>`;
+                    document.getElementById('charge-stat-ccs').innerHTML = `${ccs}<small>CCS2</small>`;
+                    provinceEl.innerHTML = ['All', ...provinces].map((item) => `<option value="${esc(item)}">${esc(item === 'All' ? 'All provinces' : item)}</option>`).join('');
+                    typeEl.innerHTML = [['All', 'Any'], ['GB/T', 'GB/T'], ['CCS2', 'CCS2']].map(([value, label], i) =>
+                        `<button type="button" data-type="${value}" class="${i === 0 ? 'is-on' : ''}">${label}</button>`
+                    ).join('');
+                    render();
+                })
+                .catch(() => {
+                    emptyEl.hidden = false;
+                    emptyEl.textContent = 'Charging locations could not be loaded.';
+                });
+
+            searchEl.addEventListener('input', (event) => {
+                query = event.target.value;
+                render();
+            });
+            clearEl.addEventListener('click', () => {
+                query = '';
+                searchEl.value = '';
+                render();
+                searchEl.focus();
+            });
+            chipsEl.addEventListener('click', (event) => {
+                const btn = event.target.closest('button');
+                if (!btn) return;
+                query = btn.dataset.q;
+                searchEl.value = query;
+                render();
+            });
+            provinceEl.addEventListener('change', render);
+            typeEl.addEventListener('click', (event) => {
+                const btn = event.target.closest('button');
+                if (!btn) return;
+                connector = btn.dataset.type;
+                render();
+            });
+        })();
+    </script>
+</body>
+</html>

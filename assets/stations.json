@@ -1,0 +1,2116 @@
+[
+  {
+    "id": 1,
+    "assigned": true,
+    "province": "Koshi",
+    "location": "Ilam",
+    "district": "Ilam",
+    "operator": "Mahendra Chauhan",
+    "phone": "9842627073",
+    "dealer": "Photex - Birtamod",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "assigned": true,
+    "province": "Koshi",
+    "location": "Hile",
+    "district": "Dhankuta",
+    "operator": "Milan Khadka",
+    "phone": "9842455775",
+    "dealer": "Shreeja Motors- Ithari",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "assigned": true,
+    "province": "Madhesh",
+    "location": "Lahan",
+    "district": "Siraha",
+    "operator": "Parwananda Sah",
+    "phone": "9815785299",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "assigned": true,
+    "province": "Madhesh",
+    "location": "Janakpur/Ramchowk",
+    "district": "Dhanusha",
+    "operator": "Future Motors",
+    "phone": "9817837555",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "assigned": true,
+    "province": "Koshi",
+    "location": "Gaighat",
+    "district": "Udayapur",
+    "operator": "Jivan Pandey",
+    "phone": "9702402177",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Sindhuli",
+    "district": "Sindhuli",
+    "operator": "Tanka Karki",
+    "phone": "9854040533",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Malekhu Rajdhani Hotel",
+    "district": "Dhading",
+    "operator": "Surendra Shrestha",
+    "phone": "9841627778",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 2
+      },
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Sukute",
+    "district": "Sindhupalchowk",
+    "operator": "Ram Khadka",
+    "phone": "9849470792",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Jiri Road, Charikot",
+    "district": "Dolakha",
+    "operator": "Bhuwan Pradhan",
+    "phone": "9844238011",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Chautara",
+    "district": "Sindhupalchowk",
+    "operator": "Hero Shrestha",
+    "phone": "9841924445",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Trishuli",
+    "district": "Nuwakot",
+    "operator": "Prakash Joshi",
+    "phone": "9751133545",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 2
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Bhaktapur",
+    "district": "Bhaktapur",
+    "operator": "Govinda Ghimire",
+    "phone": "9801091901",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 3
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Gangabu",
+    "district": "Kathmandu",
+    "operator": "Som Tulachan",
+    "phone": "9851075116",
+    "dealer": "Ktm Micro Project",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Manthali",
+    "district": "Ramechhap",
+    "operator": "Pramod Shrestha",
+    "phone": "9854040400",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 2
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Nepalthok",
+    "district": "Kavre",
+    "operator": "Thakali Bhojanalaya",
+    "phone": "9815838507",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Bharatpur Milan chowk",
+    "district": "Chitwan",
+    "operator": "Euro Motors",
+    "phone": "9801360570",
+    "dealer": "Euro Motors- Chitwan",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 3
+      },
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Hetauda",
+    "district": "Hetauda",
+    "operator": "EV Cars and Motors Hub",
+    "phone": "9811260276",
+    "dealer": "EV Cars and Motors Hub Hetauda",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 60,
+        "units": 1
+      },
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      },
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Jiri Road, Charikot",
+    "district": "Dolakha",
+    "operator": "Bir Bahadur Tamang",
+    "phone": "9851188849",
+    "dealer": "CG Motors",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Mangaltar Roshi",
+    "district": "Sindhuli",
+    "operator": "Roshi Charging Station",
+    "phone": "9851006433",
+    "dealer": "Siddha Baba -Sindhuli",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 3
+      },
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "assigned": true,
+    "province": "Madhesh",
+    "location": "Medicity",
+    "district": "Parsa",
+    "operator": "Minolta Investment",
+    "phone": "9849320165",
+    "dealer": "Minolta Investment- Birjung",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Nalinchwok",
+    "district": "Bhaktapur",
+    "operator": "Dil Kumar Hengaju",
+    "phone": "9841028754",
+    "dealer": "CG Motors",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "assigned": true,
+    "province": "Madhesh",
+    "location": "Parwanipur",
+    "district": "Bara",
+    "operator": "Minolta Investment",
+    "phone": "9849320165",
+    "dealer": "Minolta Investment- Birjung",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      },
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 2
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "assigned": true,
+    "province": "Lumbini",
+    "location": "Nepalgunj- Buspark",
+    "district": "Banke",
+    "operator": "Kohalpur EV Group Pvt Ltd",
+    "phone": "9866814609",
+    "dealer": "Kohalpur EV Group Pvt Ltd",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 60,
+        "units": 1
+      },
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "assigned": true,
+    "province": "Karnali",
+    "location": "Surkhet- Padamtar",
+    "district": "Surkhet",
+    "operator": "Sajha Stores",
+    "phone": "9869703075",
+    "dealer": "Sajha Stores- Surkhet",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "assigned": true,
+    "province": "Sudurpaschim",
+    "location": "Mahendranagar",
+    "district": "Kanchanpur",
+    "operator": "Brahma Motors",
+    "phone": "9848750158",
+    "dealer": "Brahma Motors -Dhangadi",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 60,
+        "units": 1
+      },
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "assigned": true,
+    "province": "Sudurpaschim",
+    "location": "Toofan Danda",
+    "district": "Dadeldhura",
+    "operator": "Brahma Motors",
+    "phone": "9848750158",
+    "dealer": "Brahma Motors -Dhangadi",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "assigned": true,
+    "province": "Sudurpaschim",
+    "location": "Dhangadi Showroom",
+    "district": "Kailali",
+    "operator": "Brahma Motors",
+    "phone": "9848750158",
+    "dealer": "Brahma Motors -Dhangadi",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 2
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "assigned": true,
+    "province": "Sudurpaschim",
+    "location": "Chisapani",
+    "district": "Kailali",
+    "operator": "Dev Yatayat Pvt Ltd",
+    "phone": "9858485784",
+    "dealer": "Dev Yatayat Pvt Ltd Kailali",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 2
+      },
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Harkapur, Ghurmi",
+    "district": "Okhaldhunga",
+    "operator": "Sangam Shree",
+    "phone": "9811724858",
+    "dealer": "Sangam Shree- Okhaldhunga",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 2
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Ramtar, Hamro Hotel",
+    "district": "Sindhuli",
+    "operator": "Sangam Shree",
+    "phone": "9811724858",
+    "dealer": "Sangam Shree- Okhaldhunga",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "assigned": true,
+    "province": "Gandaki",
+    "location": "Pokhara",
+    "district": "Kaski",
+    "operator": "VAW- Pokhara",
+    "phone": "9856018789",
+    "dealer": "VAW- Pokhara",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      },
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "assigned": true,
+    "province": "Lumbini",
+    "location": "Dang SVC",
+    "district": "Dang",
+    "operator": "New Dealer",
+    "phone": "9857821410",
+    "dealer": "Samriddhi Enterprises- Dang",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "assigned": true,
+    "province": "Lumbini",
+    "location": "Butwal-Jitgadi",
+    "district": "Rupandehi",
+    "operator": "Shrestha Multi Trade",
+    "phone": "9857025963",
+    "dealer": "Shrestha Multi Trade - Butwal",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "assigned": true,
+    "province": "Lumbini",
+    "location": "Argakhanchi",
+    "district": "Argakhanchi",
+    "operator": "Shrestha Multi Trade",
+    "phone": "9857025963",
+    "dealer": "Shrestha Multi Trade - Butwal",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "assigned": true,
+    "province": "Gandaki",
+    "location": "Pokhara",
+    "district": "Kaski",
+    "operator": "CGM showroom",
+    "phone": "9856023383",
+    "dealer": "CG Motors",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 60,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Naxal",
+    "district": "Kathmandu",
+    "operator": "CGM showroom",
+    "phone": "9820105055",
+    "dealer": "CG Motors",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 60,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Hattiban",
+    "district": "Lalitpur",
+    "operator": "CGM Service Center",
+    "phone": "9802326653",
+    "dealer": "CG Motors",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      },
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "NEA-Matatirtha",
+    "district": "Kathmandu",
+    "operator": "Nepal Electricity Authority",
+    "phone": "",
+    "dealer": "Nepal Electricity Authority",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Mudhe, Charikot",
+    "district": "Dolakha",
+    "operator": "Sangam Shree",
+    "phone": "9811724858",
+    "dealer": "Sangam Shree- Okhaldhunga",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Jiri Road, Charikot",
+    "district": "Dolakha",
+    "operator": "CGM",
+    "phone": "9811724858",
+    "dealer": "CG Motors",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "assigned": true,
+    "province": "Gandaki",
+    "location": "Syangha Rangkhola",
+    "district": "Syangja",
+    "operator": "Ashim Thapa",
+    "phone": "9846095201",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "assigned": true,
+    "province": "Koshi",
+    "location": "Damak",
+    "district": "Mechi",
+    "operator": "Photex",
+    "phone": "",
+    "dealer": "Photex - Birtamod",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Benighat",
+    "district": "Dhading",
+    "operator": "Peace Heaven",
+    "phone": "9851051074",
+    "dealer": "CG Motors",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      },
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 2
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "assigned": true,
+    "province": "Koshi",
+    "location": "Photex Service Center",
+    "district": "Mechi",
+    "operator": "Photex",
+    "phone": "",
+    "dealer": "Photex - Birtamod",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "assigned": true,
+    "province": "Koshi",
+    "location": "Photex Showroom",
+    "district": "Jhapa",
+    "operator": "Photex",
+    "phone": "",
+    "dealer": "Photex - Birtamod",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Koshi",
+    "location": "Fidim",
+    "district": "Panchthar",
+    "operator": "Photex",
+    "phone": "",
+    "dealer": "Photex - Birtamod",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Koshi",
+    "location": "Future Service Center",
+    "district": "Itahari",
+    "operator": "Future Motors",
+    "phone": "",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 2
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Madhesh",
+    "location": "Rajbiraj",
+    "district": "Saptari",
+    "operator": "Future Motors",
+    "phone": "",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Koshi",
+    "location": "Itahari",
+    "district": "Itahari",
+    "operator": "Future Motors",
+    "phone": "",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Madhesh",
+    "location": "Lahan",
+    "district": "Gaur",
+    "operator": "Future Motors",
+    "phone": "",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Bagmati",
+    "location": "Mangaltar Roshi",
+    "district": "Sindhuli",
+    "operator": "Siddha Baba",
+    "phone": "",
+    "dealer": "Siddha Baba -Sindhuli",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 60,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Koshi",
+    "location": "Dhankuta",
+    "district": "Dhankuta",
+    "operator": "Future Motors",
+    "phone": "",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Gandaki",
+    "location": "Viman",
+    "district": "Tanahun",
+    "operator": "Nisahn Poudel",
+    "phone": "9816943111",
+    "dealer": "Nisahn Poudel",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Bagmati",
+    "location": "Sindhuli Showroom",
+    "district": "Sindhuli",
+    "operator": "Siddha Baba",
+    "phone": "",
+    "dealer": "Siddha Baba -Sindhuli",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Koshi",
+    "location": "Gaighat",
+    "district": "Gaighat",
+    "operator": "Future Motors",
+    "phone": "",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Bagmati",
+    "location": "Chiyabari",
+    "district": "Sindhuli",
+    "operator": "Ram Thapa",
+    "phone": "9851245112",
+    "dealer": "Siddha Baba -Sindhuli",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Bagmati",
+    "location": "Bhaktapur",
+    "district": "Bhaktapur",
+    "operator": "Future Motors",
+    "phone": "",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Koshi",
+    "location": "Khandbari",
+    "district": "Khandbari",
+    "operator": "Future Motors",
+    "phone": "",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Bagmati",
+    "location": "Charikot",
+    "district": "Dolakha",
+    "operator": "Future Motors",
+    "phone": "",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 2
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Bhiman",
+    "district": "Sindhuli",
+    "operator": "Neha's Café",
+    "phone": "9844009006",
+    "dealer": "Neha's Café",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 2
+      },
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Madhesh",
+    "location": "Sindhuli Showroom",
+    "district": "Sindhuli",
+    "operator": "Siddha Baba",
+    "phone": "",
+    "dealer": "Siddha Baba -Sindhuli",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Jhangajhuli",
+    "district": "Sindhuli",
+    "operator": "Sangam Shree",
+    "phone": "9851129081",
+    "dealer": "Sangam Shree- Okhaldhunga",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 2
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Bagmati",
+    "location": "Mangaltar",
+    "district": "Sindhuli",
+    "operator": "Siddha Baba",
+    "phone": "",
+    "dealer": "Siddha Baba -Sindhuli",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Gandaki",
+    "location": "Kawasoti",
+    "district": "Kawasoti",
+    "operator": "New dealer",
+    "phone": "",
+    "dealer": "New Dealer",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Gandaki",
+    "location": "Dumre",
+    "district": "Tanahun",
+    "operator": "VAW- Pokhara",
+    "phone": "",
+    "dealer": "VAW- Pokhara",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 2
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Gandaki",
+    "location": "UCV",
+    "district": "Nawalpur",
+    "operator": "CGM",
+    "phone": "",
+    "dealer": "CG Motors",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      },
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Gandaki",
+    "location": "Besisahar",
+    "district": "Lamjung",
+    "operator": "Euro Motors",
+    "phone": "",
+    "dealer": "Euro Motors- Chitwan",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Lumbini",
+    "location": "Thakuwar",
+    "district": "Banke",
+    "operator": "CGM",
+    "phone": "",
+    "dealer": "CG Motors",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Gandaki",
+    "location": "Baglung",
+    "district": "Baglung",
+    "operator": "VAW- Pokhara",
+    "phone": "",
+    "dealer": "VAW- Pokhara",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Lumbini",
+    "location": "BardhaGhat",
+    "district": "Nawalparasi",
+    "operator": "Shrestha Multi Trade",
+    "phone": "",
+    "dealer": "Shrestha Multi Trade - Butwal",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Lumbini",
+    "location": "Gulmi",
+    "district": "Gulmi",
+    "operator": "Shrestha Multi Trade",
+    "phone": "",
+    "dealer": "Shrestha Multi Trade - Butwal",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Bagmati",
+    "location": "Koteshwor",
+    "district": "Kathmandu",
+    "operator": "CGM",
+    "phone": "",
+    "dealer": "CG Motors",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 3
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Bagmati",
+    "location": "Balaju SVC",
+    "district": "Kathmandu",
+    "operator": "CGM",
+    "phone": "",
+    "dealer": "CG Motors",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Bagmati",
+    "location": "Maharajgunj",
+    "district": "Kathmandu",
+    "operator": "CGM",
+    "phone": "",
+    "dealer": "CG Motors",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Lumbini",
+    "location": "Butwal",
+    "district": "Butwal",
+    "operator": "Network partner",
+    "phone": "",
+    "dealer": "Dealer",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Bagmati",
+    "location": "Charikot",
+    "district": "Dolakha",
+    "operator": "Network partner",
+    "phone": "",
+    "dealer": "Operator",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Lumbini",
+    "location": "Dang SVC",
+    "district": "Dang",
+    "operator": "Network partner",
+    "phone": "",
+    "dealer": "Dealer",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Gandaki",
+    "location": "CGIP",
+    "district": "Nawalpur",
+    "operator": "CGM",
+    "phone": "",
+    "dealer": "CG Motors",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Gandaki",
+    "location": "Devdaha",
+    "district": "Nawalpur",
+    "operator": "CGM",
+    "phone": "",
+    "dealer": "CG Motors",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Sudurpaschim",
+    "location": "Kohalpur",
+    "district": "Banke",
+    "operator": "Network partner",
+    "phone": "",
+    "dealer": "Dealer",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Gandaki",
+    "location": "Dumre",
+    "district": "Tanahun",
+    "operator": "CGM",
+    "phone": "",
+    "dealer": "VAW- Pokhara",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 2
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "assigned": true,
+    "province": "Sudurpaschim",
+    "location": "Budar",
+    "district": "Doti",
+    "operator": "Brahma Motors",
+    "phone": "9848750158",
+    "dealer": "Brahma Motors -Dhangadi",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      },
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 2
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Gandaki",
+    "location": "Waling",
+    "district": "Syangja",
+    "operator": "CGM",
+    "phone": "",
+    "dealer": "CG Motors",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Gandaki",
+    "location": "Kusma / Beni",
+    "district": "Parbat",
+    "operator": "CGM",
+    "phone": "",
+    "dealer": "CG Motors",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Lumbini",
+    "location": "Butwal",
+    "district": "Rupandehi",
+    "operator": "Network partner",
+    "phone": "",
+    "dealer": "Dealer",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Karnali",
+    "location": "Sallibazar",
+    "district": "Salyan",
+    "operator": "Kohalpur EV Group Pvt Ltd",
+    "phone": "",
+    "dealer": "Kohalpur EV Group Pvt Ltd",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Koshi",
+    "location": "Katari / Bhiman",
+    "district": "Udayapur",
+    "operator": "CGM",
+    "phone": "",
+    "dealer": "CG Motors",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Lumbini",
+    "location": "Devdaha",
+    "district": "Rupandehi",
+    "operator": "CGM",
+    "phone": "",
+    "dealer": "CG Motors",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Koshi",
+    "location": "Halesi",
+    "district": "Khotang",
+    "operator": "Sangam Shree",
+    "phone": "",
+    "dealer": "Sangam Shree- Okhaldhunga",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Koshi",
+    "location": "Gaighat",
+    "district": "Udayapur",
+    "operator": "Sangam Shree",
+    "phone": "",
+    "dealer": "Sangam Shree- Okhaldhunga",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 2
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Lumbini",
+    "location": "Rajapur",
+    "district": "Bardiya",
+    "operator": "Kohalpur EV Group Pvt Ltd",
+    "phone": "",
+    "dealer": "Kohalpur EV Group Pvt Ltd",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Lumbini",
+    "location": "Bhurigaun",
+    "district": "Bardiya",
+    "operator": "Kohalpur EV Group Pvt Ltd",
+    "phone": "",
+    "dealer": "Kohalpur EV Group Pvt Ltd",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Lumbini",
+    "location": "Chakchke",
+    "district": "Pyuthan",
+    "operator": "Shrestha Multi Trade",
+    "phone": "",
+    "dealer": "Shrestha Multi Trade - Butwal",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Lumbini",
+    "location": "Bhalubang",
+    "district": "Dang",
+    "operator": "Network partner",
+    "phone": "",
+    "dealer": "Dealer",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Lumbini",
+    "location": "Bhairahawa",
+    "district": "Rupandehi",
+    "operator": "Samriddhi Enterprises, Ghorahi Dang",
+    "phone": "",
+    "dealer": "Samriddhi Enterprises- Dang",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Madhesh",
+    "location": "Chapur",
+    "district": "Rautahat",
+    "operator": "CGM",
+    "phone": "",
+    "dealer": "CG Motors",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Madhesh",
+    "location": "Lahan",
+    "district": "Siraha",
+    "operator": "Future",
+    "phone": "",
+    "dealer": "Future Motors- Bhaktapur",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Madhesh",
+    "location": "Bhardaha",
+    "district": "Saptari",
+    "operator": "Sangam Shree",
+    "phone": "",
+    "dealer": "Sangam Shree- Okhaldhunga",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Bagmati",
+    "location": "Mastar Dhading",
+    "district": "Dhading",
+    "operator": "Sangam Shree",
+    "phone": "9851129081",
+    "dealer": "Sangam Shree- Okhaldhunga",
+    "planned": true,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Bagmati",
+    "location": "Kapan",
+    "district": "Kathmandu",
+    "operator": "Sangam Shree",
+    "phone": "",
+    "dealer": "Sangam Shree- Okhaldhunga",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Bagmati",
+    "location": "Charikot",
+    "district": "Sindhupalchowk",
+    "operator": "Sangam Shree",
+    "phone": "",
+    "dealer": "Sangam Shree- Okhaldhunga",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 2
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Bagmati",
+    "location": "Ratamate Jhangholi",
+    "district": "Sindhuli",
+    "operator": "Sangam Shree",
+    "phone": "",
+    "dealer": "Sangam Shree- Okhaldhunga",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 80,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Lumbini",
+    "location": "Kohalpur",
+    "district": "Banke",
+    "operator": "Network partner",
+    "phone": "9858022655",
+    "dealer": "Dealer",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Karnali",
+    "location": "Surkhet",
+    "district": "Surkhet",
+    "operator": "Sajha Stores",
+    "phone": "9858051975",
+    "dealer": "Sajha Stores- Surkhet",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "assigned": true,
+    "province": "Sudurpaschim",
+    "location": "Attariya",
+    "district": "Kailali",
+    "operator": "Brahma Motors",
+    "phone": "9848750158",
+    "dealer": "Brahma Motors -Dhangadi",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Pahelopul - Workshop",
+    "district": "Kathmandu",
+    "operator": "Sangam Shree",
+    "phone": "9851129081",
+    "dealer": "Sangam Shree- Okhaldhunga",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 2
+      },
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Sobhabhagwati",
+    "district": "Kathmandu",
+    "operator": "Ram Kumar Shrestha (Annapurna Yatayat)",
+    "phone": "9851002956",
+    "dealer": "Kathmandu Micro",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Basundhara",
+    "district": "Kathmandu",
+    "operator": "Hemant Sherchan",
+    "phone": "9868199829",
+    "dealer": "Kathmandu Micro",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Bagmati",
+    "location": "Marine",
+    "district": "Sindhuli",
+    "operator": "Sidha Baba",
+    "phone": "",
+    "dealer": "Siddha Baba -Sindhuli",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "assigned": true,
+    "province": "Madhesh",
+    "location": "Birgunj Bus Park",
+    "district": "Birgunj",
+    "operator": "Minolta Investment",
+    "phone": "",
+    "dealer": "Minolta Investment- Birjung",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 3
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Madhesh",
+    "location": "Bardibas",
+    "district": "Dhanusha",
+    "operator": "Planned",
+    "phone": "",
+    "dealer": "Planned",
+    "planned": true,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": null,
+    "assigned": false,
+    "province": "Koshi",
+    "location": "Gaighat",
+    "district": "Udayapur",
+    "operator": "Planned",
+    "phone": "",
+    "dealer": "Planned",
+    "planned": true,
+    "chargers": [
+      {
+        "type": "CCS2",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "assigned": true,
+    "province": "Bagmati",
+    "location": "Dumre",
+    "district": "Hetauda",
+    "operator": "EV Cars and Motors Hub",
+    "phone": "9856027830",
+    "dealer": "EV Cars and Motors Hub Hetauda",
+    "planned": false,
+    "chargers": [
+      {
+        "type": "GB/T",
+        "kw": 30,
+        "units": 1
+      }
+    ]
+  }
+]

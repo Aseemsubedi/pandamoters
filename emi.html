@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff">
+    <title>EMI Calculator | Panda Wheels</title>
+    <meta name="description" content="Estimate your monthly EMI for AION, XPENG, and RIDDARA at Panda Wheels, Panipokhari.">
+    <link rel="icon" type="image/png" href="assets/panda-wheels.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FFFFFF;
+            --bg-soft: #F5F5F7;
+            --navy: #001040;
+            --sky: #25AAE1;
+            --sky-deep: #0D62CD;
+            --text: #001040;
+            --muted: #6E7A90;
+            --hairline: rgba(0, 16, 64, 0.10);
+            --glow: rgba(37, 170, 225, 0.22);
+            --nav-h: 72px;
+            --radius: 22px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        a, button, input, textarea, select, label { cursor: pointer; }
+
+        body {
+            font-family: Poppins, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+        }
+
+        img { max-width: 100%; }
+        button, a, input, select, textarea { touch-action: manipulation; }
+        a, button { -webkit-tap-highlight-color: rgba(13, 98, 205, 0.12); }
+
+        .wrap {
+            width: min(1120px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: calc(var(--nav-h) + env(safe-area-inset-top));
+            padding-top: env(safe-area-inset-top);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: saturate(1.4) blur(20px);
+            -webkit-backdrop-filter: saturate(1.4) blur(20px);
+            border-bottom: 1px solid var(--hairline);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            height: var(--nav-h);
+            gap: 28px;
+        }
+
+        .brand-lockup {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .brand-lockup .logo-img { display: block; height: 58px; width: auto; }
+        .brand-lockup .logo-img.cg { height: 22px; }
+        .lockup-rule { width: 1px; height: 32px; background: var(--hairline); flex-shrink: 0; }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .nav-links a {
+            position: relative;
+            text-decoration: none;
+            color: var(--navy);
+            font-size: 0.78rem;
+            font-weight: 500;
+            opacity: 0.78;
+        }
+
+        .nav-links a.active { opacity: 1; font-weight: 600; }
+        .nav-more { display: none; }
+        .nav-end { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #fff;
+            background: var(--navy);
+            padding: 8px 16px;
+            border-radius: 999px;
+        }
+
+        .nav-cta:hover { background: var(--sky-deep); }
+
+        .menu-toggle {
+            display: none;
+            position: relative;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 12px;
+            background: var(--bg-soft);
+        }
+
+        .menu-toggle span {
+            position: absolute;
+            left: 11px;
+            right: 11px;
+            height: 1.5px;
+            background: var(--navy);
+            border-radius: 99px;
+            transition: transform 0.25s, opacity 0.2s, top 0.25s;
+        }
+
+        .menu-toggle span:nth-child(1) { top: 14px; }
+        .menu-toggle span:nth-child(2) { top: 19px; }
+        .menu-toggle span:nth-child(3) { top: 24px; }
+        .menu-toggle.is-open span:nth-child(1) { top: 19px; transform: rotate(45deg); }
+        .menu-toggle.is-open span:nth-child(2) { opacity: 0; }
+        .menu-toggle.is-open span:nth-child(3) { top: 19px; transform: rotate(-45deg); }
+
+        .page {
+            padding: 56px 0 88px;
+            background: var(--bg-soft);
+        }
+
+        .kicker {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--sky);
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.08;
+            color: var(--sky);
+        }
+
+        .lead {
+            margin-top: 12px;
+            max-width: 46ch;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .emi-board {
+            margin-top: 40px;
+            background: #fff;
+            border-radius: 28px;
+            padding: 36px 32px;
+            box-shadow: 0 16px 40px rgba(0, 16, 64, 0.06);
+            display: grid;
+            grid-template-columns: 1.08fr 0.96fr 0.88fr;
+            gap: 28px 0;
+            align-items: center;
+        }
+
+        .emi-stats,
+        .emi-chart {
+            padding-left: 36px;
+            margin-left: 36px;
+            border-left: 1px solid var(--hairline);
+        }
+
+        .emi-card label.block {
+            display: block;
+            margin-bottom: 18px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--navy);
+        }
+
+        .emi-field {
+            display: flex;
+            margin-top: 8px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--hairline);
+            background: #fff;
+        }
+
+        .emi-field:focus-within {
+            border-color: var(--sky);
+            box-shadow: 0 0 0 4px var(--glow);
+        }
+
+        .emi-field span {
+            display: grid;
+            place-items: center;
+            min-width: 52px;
+            background: var(--bg-soft);
+            color: var(--muted);
+            font-size: 0.82rem;
+            font-weight: 600;
+            border-right: 1px solid var(--hairline);
+        }
+
+        .emi-field input {
+            flex: 1;
+            background: transparent;
+            border: 0;
+            padding: 13px 14px;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--navy);
+            outline: none;
+            width: 100%;
+            border-radius: 0;
+            -moz-appearance: textfield;
+        }
+
+        .emi-field input::-webkit-outer-spin-button,
+        .emi-field input::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+        .emi-slider {
+            width: 100%;
+            margin-top: 12px;
+            appearance: none;
+            -webkit-appearance: none;
+            height: 4px;
+            border-radius: 99px;
+            background: var(--hairline);
+            outline: none;
+        }
+
+        .emi-slider::-webkit-slider-runnable-track {
+            height: 4px;
+            border-radius: 99px;
+        }
+
+        .emi-slider::-moz-range-track {
+            height: 4px;
+            border-radius: 99px;
+            background: transparent;
+            border: 0;
+        }
+
+        .emi-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--sky-deep);
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 1px rgba(0, 16, 64, 0.12), 0 4px 10px rgba(13, 98, 205, 0.25);
+        }
+
+        .emi-slider::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--sky-deep);
+            border: 3px solid #fff;
+        }
+
+        .emi-unit {
+            display: flex;
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .emi-unit label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin: 0;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: var(--bg-soft);
+            color: var(--navy);
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+
+        .emi-unit input { position: absolute; opacity: 0; pointer-events: none; }
+        .emi-unit label:has(input:checked) {
+            background: var(--navy);
+            color: #fff;
+        }
+
+        .emi-stats div {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--hairline);
+        }
+
+        .emi-stats div:first-child { padding-top: 0; }
+        .emi-stats div:last-child { border-bottom: 0; padding-bottom: 0; }
+
+        .emi-stats p {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .emi-stats strong {
+            display: block;
+            color: var(--navy);
+            font-weight: 700;
+            letter-spacing: -0.035em;
+            font-size: 1.32rem;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .emi-stats div:first-child strong {
+            font-size: clamp(1.6rem, 2.4vw, 2rem);
+            color: var(--sky-deep);
+        }
+
+        .emi-chart {
+            display: grid;
+            justify-items: center;
+            gap: 20px;
+        }
+
+        .emi-donut-wrap {
+            position: relative;
+            width: 188px;
+            height: 188px;
+        }
+
+        .emi-donut-wrap svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .emi-donut-wrap circle {
+            fill: none;
+            stroke-width: 4.6;
+        }
+
+        .emi-donut-wrap .track { stroke: var(--navy); }
+        .emi-donut-wrap .arc {
+            stroke: var(--sky);
+            stroke-linecap: butt;
+            transition: stroke-dasharray 0.35s ease;
+        }
+
+        .emi-center {
+            position: absolute;
+            inset: 28%;
+            display: grid;
+            place-content: center;
+            text-align: center;
+        }
+
+        .emi-center b {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.03em;
+        }
+
+        .emi-center span {
+            font-size: 0.64rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .emi-legend {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+            width: 100%;
+            font-size: 0.78rem;
+            color: var(--muted);
+        }
+
+        .emi-legend li {
+            display: grid;
+            grid-template-columns: 12px 1fr auto;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .emi-legend i {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            display: block;
+        }
+
+        .emi-legend .principal { background: var(--sky); }
+        .emi-legend .interest { background: var(--navy); }
+        .emi-legend em {
+            font-style: normal;
+            font-weight: 600;
+            color: var(--navy);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .emi-note {
+            margin-top: 22px;
+            font-size: 0.78rem;
+            color: var(--muted);
+            max-width: 62ch;
+        }
+
+        .text-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 28px;
+            margin-top: 18px;
+        }
+
+        .text-links a {
+            color: var(--sky-deep);
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .text-links a span {
+            display: inline-block;
+            margin-left: 2px;
+        }
+
+        footer {
+            background: var(--bg);
+            border-top: 1px solid var(--hairline);
+        }
+
+        .footer-bar {
+            display: flex;
+            align-items: center;
+            min-height: 84px;
+            gap: 24px;
+        }
+
+        .footer-links { display: flex; list-style: none; gap: 18px; flex-wrap: wrap; }
+        .footer-links a { text-decoration: none; color: var(--navy); font-size: 0.78rem; font-weight: 500; opacity: 0.75; }
+        .footer-end { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+
+        .footer-social {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .footer-social a {
+            display: grid;
+            place-items: center;
+            width: 36px;
+            height: 36px;
+            color: var(--navy);
+            opacity: 0.72;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        .footer-social a:hover { opacity: 1; background: var(--bg-soft); }
+        .footer-social svg { width: 17px; height: 17px; fill: currentColor; }
+        .footer-mail { color: var(--muted); font-size: 0.78rem; text-decoration: none; }
+
+        .footer-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px 24px;
+            flex-wrap: wrap;
+            padding: 14px 0 22px;
+            border-top: 1px solid var(--hairline);
+            font-size: 0.72rem;
+            color: var(--muted);
+        }
+
+        .footer-meta .tag {
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--sky);
+            font-weight: 600;
+        }
+
+        @media (max-width: 960px) {
+            :root { --nav-h: 64px; }
+            .wrap { width: min(1120px, calc(100% - 28px)); }
+            .nav { gap: 12px; }
+            .page { padding: 36px 0 64px; }
+            .menu-toggle { display: block; min-width: 44px; min-height: 44px; }
+            .nav-more { display: list-item; }
+            .nav-end .nav-cta { display: inline-flex; padding: 8px 12px; font-size: 0.72rem; }
+            .nav-links {
+                position: absolute;
+                top: calc(var(--nav-h) + env(safe-area-inset-top));
+                left: 0;
+                right: 0;
+                background: rgba(255,255,255,0.98);
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                padding: 8px 24px calc(18px + env(safe-area-inset-bottom));
+                display: none;
+                border-bottom: 1px solid var(--hairline);
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a { width: 100%; padding: 14px 0; font-size: 1rem; min-height: 44px; }
+            header .brand-lockup { gap: 8px; }
+            header .brand-lockup .logo-img { height: 42px; }
+            header .brand-lockup .logo-img.cg { height: 16px; }
+            header .lockup-rule { height: 24px; }
+            .footer-bar {
+                flex-wrap: wrap;
+                min-height: auto;
+                padding: 18px 0 calc(8px + env(safe-area-inset-bottom));
+            }
+            .footer-links { width: 100%; order: 3; padding: 6px 0 10px; }
+            .footer-mail { display: none; }
+            body.menu-open { overflow: hidden; }
+        }
+
+        @media (max-width: 1020px) {
+            .emi-board {
+                grid-template-columns: 1fr 1fr;
+                padding: 28px 24px;
+                gap: 28px 24px;
+            }
+            .emi-stats,
+            .emi-chart {
+                margin-left: 0;
+                padding-left: 0;
+                border-left: 0;
+            }
+            .emi-chart { grid-column: 1 / -1; }
+        }
+
+        @media (max-width: 720px) {
+            .emi-board {
+                grid-template-columns: 1fr;
+                padding: 22px 18px;
+            }
+            .emi-stats div:first-child strong { font-size: 1.5rem; }
+        }
+
+        @media (max-width: 560px) {
+            h1 { font-size: 2.1rem; }
+            .lead { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrap nav">
+            <a class="brand-lockup" href="index.html" aria-label="Panda Wheels — CG Motors">
+                <img class="logo-img" src="assets/panda-wheels.png" alt="Panda Wheels">
+                <span class="lockup-rule" aria-hidden="true"></span>
+                <img class="logo-img cg" src="assets/cg-motors.png" alt="CG Motors">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#lineup">Lineup</a></li>
+                <li><a href="index.html#charging">Charging</a></li>
+                <li><a class="active" href="emi.html">Finance</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li class="nav-more"><a href="request.html">Request</a></li>
+                <li class="nav-more"><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-end">
+                <a class="nav-cta" href="request.html">Request a Vehicle</a>
+                <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="page">
+        <div class="wrap">
+            <p class="kicker">Finance</p>
+            <h1>EMI Calculator</h1>
+            <p class="lead">Estimate a monthly payment. Banks set the final rate and approval.</p>
+
+            <div class="emi-board">
+                <div class="emi-card">
+                    <label class="block">Your Loan Amount is
+                        <div class="emi-field"><span>Rs</span><input id="emi-amount" type="number" min="0" step="1000" value="3899000" inputmode="numeric"></div>
+                        <input class="emi-slider" id="emi-amount-range" type="range" min="50000" max="25000000" step="10000" value="3899000" aria-label="Loan amount">
+                    </label>
+                    <label class="block">Loan Rate
+                        <div class="emi-field"><span>%</span><input id="emi-rate" type="number" min="0" max="36" step="0.1" value="14" inputmode="decimal"></div>
+                        <input class="emi-slider" id="emi-rate-range" type="range" min="0" max="24" step="0.1" value="14" aria-label="Interest rate">
+                    </label>
+                    <label class="block">Loan Tenure
+                        <div class="emi-field"><span id="emi-tenure-unit">Mo</span><input id="emi-tenure" type="number" min="1" max="84" step="1" value="36" inputmode="numeric"></div>
+                        <input class="emi-slider" id="emi-tenure-range" type="range" min="1" max="84" step="1" value="36" aria-label="Loan tenure">
+                    </label>
+                    <div class="emi-unit">
+                        <label><input type="radio" name="emi-unit" value="months" checked> Months</label>
+                        <label><input type="radio" name="emi-unit" value="years"> Years</label>
+                    </div>
+                </div>
+                <div class="emi-stats">
+                    <div>
+                        <p>Loan EMI</p>
+                        <strong id="emi-monthly">Rs 0.00</strong>
+                    </div>
+                    <div>
+                        <p>Total Interest Payable</p>
+                        <strong id="emi-interest">Rs 0.00</strong>
+                    </div>
+                    <div>
+                        <p>Total Payment</p>
+                        <strong id="emi-total">Rs 0.00</strong>
+                    </div>
+                </div>
+                <div class="emi-chart">
+                    <ul class="emi-legend">
+                        <li><i class="principal"></i> Principal Loan Amount <em id="emi-legend-p">Rs 0.00</em></li>
+                        <li><i class="interest"></i> Total Interest <em id="emi-legend-i">Rs 0.00</em></li>
+                    </ul>
+                    <div class="emi-donut-wrap" aria-hidden="true">
+                        <svg viewBox="0 0 36 36">
+                            <circle class="track" cx="18" cy="18" r="15.9155"></circle>
+                            <circle class="arc" id="emi-arc" cx="18" cy="18" r="15.9155" stroke-dasharray="100 0"></circle>
+                        </svg>
+                        <div class="emi-center">
+                            <b id="emi-principal-pct">—</b>
+                            <span>Principal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="emi-note">Estimate only. EMI uses reducing balance, rounded to the nearest paisa. Banks set the final rate and approval.</p>
+            <div class="text-links">
+                <a href="https://wa.me/9779761633331?text=I%27d%20like%20help%20with%20vehicle%20finance" target="_blank" rel="noopener noreferrer">Enquire on WhatsApp <span>›</span></a>
+                <a href="request.html">Request a vehicle <span>›</span></a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="wrap footer-bar">
+            <a class="brand-lockup" href="index.html" aria-label="Panda Wheels — CG Motors">
+                <img class="logo-img" src="assets/panda-wheels.png" alt="Panda Wheels">
+                <span class="lockup-rule" aria-hidden="true"></span>
+                <img class="logo-img cg" src="assets/cg-motors.png" alt="CG Motors">
+            </a>
+            <ul class="footer-links">
+                <li><a href="index.html#lineup">Lineup</a></li>
+                <li><a href="index.html#charging">Charging</a></li>
+                <li><a href="emi.html">Finance</a></li>
+                <li><a href="request.html">Request</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="footer-end">
+                <div class="footer-social">
+                    <a href="https://www.tiktok.com/@panda.wheels4" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3h2.2c.2 1.9 1.4 3.5 3.3 4v2.2c-1.2.1-2.3-.2-3.3-.8v6.7c0 3.4-2.7 6.1-6.2 6.1S4.3 18.5 4.3 15.1c0-3.3 2.6-6 5.9-6.1v2.3c-2 .1-3.6 1.8-3.6 3.8s1.7 3.7 3.8 3.7 3.6-1.5 3.8-3.4V3z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/panda.wheels4" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 8.5V6.8c0-.7.5-1.3 1.2-1.3H17V3h-2.1C12.4 3 11 4.5 11 6.5v2H9v2.7h2V21h3.5v-9.8h2.3l.5-2.7h-2.8z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/panda.wheels4/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.2A4.8 4.8 0 1 0 16.8 12 4.8 4.8 0 0 0 12 7.2zm0 7.9A3.1 3.1 0 1 1 15.1 12 3.1 3.1 0 0 1 12 15.1zm6.2-8.2a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1zM12 4.5c-1.6 0-1.8 0-2.5.1a5 5 0 0 0-3.4 2 5 5 0 0 0-1.1 2.4C5 9.6 5 9.8 5 12s0 2.4.1 3.1a5 5 0 0 0 1.1 2.4 5 5 0 0 0 3.4 1.9c.7.1.9.1 2.5.1s1.8 0 2.5-.1a5 5 0 0 0 3.4-1.9 5 5 0 0 0 1.1-2.4c.1-.7.1-.9.1-3.1s0-2.4-.1-3.1a5 5 0 0 0-1.1-2.4 5 5 0 0 0-3.4-2C13.8 4.5 13.6 4.5 12 4.5zm0 1.8c1.6 0 1.8 0 2.4.1a3.2 3.2 0 0 1 2.1 1.2 3.2 3.2 0 0 1 .7 1.6c.1.6.1.8.1 2.4s0 1.8-.1 2.4a3.2 3.2 0 0 1-.7 1.6 3.2 3.2 0 0 1-2.1 1.2c-.6.1-.8.1-2.4.1s-1.8 0-2.4-.1a3.2 3.2 0 0 1-2.1-1.2 3.2 3.2 0 0 1-.7-1.6c-.1-.6-.1-.8-.1-2.4s0-1.8.1-2.4a3.2 3.2 0 0 1 .7-1.6 3.2 3.2 0 0 1 2.1-1.2c.6-.1.8-.1 2.4-.1z"/></svg>
+                    </a>
+                </div>
+                <a class="footer-mail" href="https://wa.me/9779761633331" target="_blank" rel="noopener noreferrer">WhatsApp +977 9761633331</a>
+                <a class="nav-cta" href="request.html">Request a Vehicle</a>
+            </div>
+        </div>
+        <div class="wrap footer-meta">
+            <span>© 2026 Panda Wheels · Authorised CG Motors partner</span>
+            <span class="tag">Growing Together</span>
+            <span>Panipokhari, Kathmandu 03</span>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.nav-links');
+        const setMenu = (open) => {
+            nav.classList.toggle('open', open);
+            toggle.classList.toggle('is-open', open);
+            toggle.setAttribute('aria-expanded', String(open));
+            document.body.classList.toggle('menu-open', open);
+        };
+        toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+        nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+
+        const amountEl = document.getElementById('emi-amount');
+        const rateEl = document.getElementById('emi-rate');
+        const tenureEl = document.getElementById('emi-tenure');
+        const amountRange = document.getElementById('emi-amount-range');
+        const rateRange = document.getElementById('emi-rate-range');
+        const tenureRange = document.getElementById('emi-tenure-range');
+        const monthlyEl = document.getElementById('emi-monthly');
+        const interestEl = document.getElementById('emi-interest');
+        const totalEl = document.getElementById('emi-total');
+        const arcEl = document.getElementById('emi-arc');
+        const pctEl = document.getElementById('emi-principal-pct');
+        const legendP = document.getElementById('emi-legend-p');
+        const legendI = document.getElementById('emi-legend-i');
+        const tenureUnitEl = document.getElementById('emi-tenure-unit');
+        const TENURE = { months: { min: 1, max: 84 }, years: { min: 1, max: 7 } };
+
+        const money = (value) => {
+            const n = Number.isFinite(value) ? value : 0;
+            return `Rs ${n.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        };
+
+        const fillSlider = (el) => {
+            const min = Number(el.min);
+            const max = Number(el.max);
+            const pct = max === min ? 0 : ((Number(el.value) - min) / (max - min)) * 100;
+            el.style.background = `linear-gradient(90deg, var(--sky-deep) ${pct}%, var(--hairline) ${pct}%)`;
+        };
+
+        const unit = () => document.querySelector('input[name="emi-unit"]:checked')?.value || 'months';
+
+        const applyTenureBounds = (mode) => {
+            const bounds = TENURE[mode];
+            tenureEl.min = bounds.min;
+            tenureEl.max = bounds.max;
+            tenureRange.min = bounds.min;
+            tenureRange.max = bounds.max;
+            tenureUnitEl.textContent = mode === 'years' ? 'Yr' : 'Mo';
+        };
+
+        const reducingEmi = (principal, annualRate, months) => {
+            if (principal <= 0 || months <= 0) return 0;
+            const r = annualRate / 12 / 100;
+            if (r === 0) return principal / months;
+            const pow = Math.pow(1 + r, months);
+            return principal * r * pow / (pow - 1);
+        };
+
+        const calc = () => {
+            const principal = Math.max(0, Number(amountEl.value) || 0);
+            const annual = Math.max(0, Number(rateEl.value) || 0);
+            const bounds = TENURE[unit()];
+            const tenure = Math.min(bounds.max, Math.max(bounds.min, Math.round(Number(tenureEl.value) || bounds.min)));
+            const months = unit() === 'years' ? tenure * 12 : tenure;
+            const raw = reducingEmi(principal, annual, months);
+            const emiPaise = Math.round(raw * 100);
+            const emi = emiPaise / 100;
+            const total = (emiPaise * months) / 100;
+            const interest = Math.max(0, Math.round((total - principal) * 100) / 100);
+            monthlyEl.textContent = money(emi);
+            interestEl.textContent = money(interest);
+            totalEl.textContent = money(total);
+            legendP.textContent = money(principal);
+            legendI.textContent = money(interest);
+            const share = total > 0 ? (principal / total) * 100 : 100;
+            arcEl.setAttribute('stroke-dasharray', `${share.toFixed(3)} ${Math.max(0, 100 - share).toFixed(3)}`);
+            pctEl.textContent = `${Math.round(share)}%`;
+            amountRange.value = Math.min(Number(amountRange.max), Math.max(Number(amountRange.min), principal || Number(amountRange.min)));
+            rateRange.value = Math.min(Number(rateRange.max), Math.max(Number(rateRange.min), annual));
+            tenureRange.value = tenure;
+            [amountRange, rateRange, tenureRange].forEach(fillSlider);
+        };
+
+        const bindPair = (input, range) => {
+            input.addEventListener('input', calc);
+            range.addEventListener('input', () => {
+                input.value = range.value;
+                calc();
+            });
+        };
+
+        bindPair(amountEl, amountRange);
+        bindPair(rateEl, rateRange);
+        bindPair(tenureEl, tenureRange);
+
+        document.querySelectorAll('input[name="emi-unit"]').forEach((el) => {
+            el.addEventListener('change', () => {
+                const mode = el.value;
+                const current = Math.max(1, Number(tenureEl.value) || 1);
+                const next = mode === 'years'
+                    ? Math.min(7, Math.max(1, Math.round(current / 12) || 1))
+                    : Math.min(84, Math.max(1, current * 12));
+                applyTenureBounds(mode);
+                tenureEl.value = next;
+                tenureRange.value = next;
+                calc();
+            });
+        });
+
+        applyTenureBounds('months');
+        calc();
+    </script>
+</body>
+</html>

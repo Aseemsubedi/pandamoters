@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff">
+    <title>Request a Vehicle | Panda Wheels</title>
+    <meta name="description" content="Request an AION, XPENG, or RIDDARA from Panda Wheels, an authorised CG Motors partner in Panipokhari, Kathmandu.">
+    <link rel="icon" type="image/png" href="assets/panda-wheels.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FFFFFF;
+            --bg-soft: #F5F5F7;
+            --navy: #001040;
+            --sky: #25AAE1;
+            --sky-deep: #0D62CD;
+            --text: #001040;
+            --muted: #6E7A90;
+            --hairline: rgba(0, 16, 64, 0.10);
+            --glow: rgba(37, 170, 225, 0.22);
+            --nav-h: 72px;
+            --radius: 22px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        a, button, input, textarea, select, label { cursor: pointer; }
+
+        body {
+            font-family: Poppins, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+        }
+
+        img { max-width: 100%; }
+        button, a, input, select, textarea { touch-action: manipulation; }
+        a, button { -webkit-tap-highlight-color: rgba(13, 98, 205, 0.12); }
+
+        .wrap {
+            width: min(1120px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: calc(var(--nav-h) + env(safe-area-inset-top));
+            padding-top: env(safe-area-inset-top);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: saturate(1.4) blur(20px);
+            -webkit-backdrop-filter: saturate(1.4) blur(20px);
+            border-bottom: 1px solid var(--hairline);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            height: var(--nav-h);
+            gap: 28px;
+        }
+
+        .brand-lockup {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .brand-lockup .logo-img { display: block; height: 58px; width: auto; }
+        .brand-lockup .logo-img.cg { height: 22px; }
+        .lockup-rule { width: 1px; height: 32px; background: var(--hairline); flex-shrink: 0; }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .nav-links a {
+            position: relative;
+            text-decoration: none;
+            color: var(--navy);
+            font-size: 0.78rem;
+            font-weight: 500;
+            opacity: 0.78;
+        }
+
+        .nav-links a.active { opacity: 1; font-weight: 600; }
+
+        .nav-more { display: none; }
+
+        .nav-end { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #fff;
+            background: var(--navy);
+            padding: 8px 16px;
+            border-radius: 999px;
+        }
+
+        .nav-cta:hover { background: var(--sky-deep); }
+
+        .menu-toggle {
+            display: none;
+            position: relative;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 12px;
+            background: var(--bg-soft);
+        }
+
+        .menu-toggle span {
+            position: absolute;
+            left: 11px;
+            right: 11px;
+            height: 1.5px;
+            background: var(--navy);
+            border-radius: 99px;
+            transition: transform 0.25s, opacity 0.2s, top 0.25s;
+        }
+
+        .menu-toggle span:nth-child(1) { top: 14px; }
+        .menu-toggle span:nth-child(2) { top: 19px; }
+        .menu-toggle span:nth-child(3) { top: 24px; }
+        .menu-toggle.is-open span:nth-child(1) { top: 19px; transform: rotate(45deg); }
+        .menu-toggle.is-open span:nth-child(2) { opacity: 0; }
+        .menu-toggle.is-open span:nth-child(3) { top: 19px; transform: rotate(-45deg); }
+
+        .page {
+            padding: 56px 0 88px;
+            background: var(--bg-soft);
+        }
+
+        .kicker {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--sky);
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.08;
+        }
+
+        .lead {
+            margin-top: 12px;
+            max-width: 48ch;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .request-layout {
+            display: grid;
+            grid-template-columns: 0.92fr 1.08fr;
+            gap: 20px;
+            margin-top: 40px;
+            align-items: start;
+        }
+
+        .request-form,
+        .model-board {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 28px 26px;
+        }
+
+        form { display: grid; gap: 14px; }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            background: var(--bg-soft);
+            border: 0;
+            border-radius: 12px;
+            color: var(--text);
+            padding: 12px 14px;
+            font-family: inherit;
+            font-size: 16px;
+            outline: none;
+            appearance: none;
+        }
+
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23001040' d='M1 1.5 6 6.5 11 1.5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+
+        input:focus, textarea:focus, select:focus { box-shadow: 0 0 0 4px var(--glow); }
+        textarea { min-height: 110px; resize: vertical; }
+
+        .check {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .check input { width: auto; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 4px;
+            padding: 12px 22px;
+            border-radius: 999px;
+            border: 0;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #fff;
+            background: var(--navy);
+            width: fit-content;
+        }
+
+        .btn:hover { background: var(--sky-deep); }
+
+        .form-note { font-size: 0.8rem; color: var(--muted); min-height: 1.2em; }
+        .form-note.ok { color: var(--sky-deep); }
+        .form-note.err { color: #C4314B; }
+
+        .board-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            align-items: baseline;
+            margin-bottom: 18px;
+        }
+
+        .board-head h2 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+        }
+
+        .board-head p { font-size: 0.78rem; color: var(--muted); }
+
+        .brand-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .brand-tabs button {
+            border: 0;
+            background: var(--bg-soft);
+            color: var(--navy);
+            font-family: inherit;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 999px;
+        }
+
+        .brand-tabs button.is-on { background: var(--navy); color: #fff; }
+
+        .model-list { display: grid; gap: 8px; }
+
+        .model-card {
+            width: 100%;
+            text-align: left;
+            border: 1px solid transparent;
+            background: var(--bg-soft);
+            border-radius: 16px;
+            padding: 14px 16px;
+            font-family: inherit;
+            color: inherit;
+            transition: border-color 0.2s, transform 0.2s, background 0.2s;
+        }
+
+        .model-card:hover { transform: translateY(-1px); }
+        .model-card.is-on {
+            background: #fff;
+            border-color: var(--sky);
+            box-shadow: 0 0 0 3px var(--glow);
+        }
+
+        .model-card .top {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            align-items: baseline;
+        }
+
+        .model-card h3 {
+            font-size: 0.98rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .model-card .price {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--sky-deep);
+            white-space: nowrap;
+        }
+
+        .model-card .meta {
+            margin-top: 4px;
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        .source {
+            margin-top: 16px;
+            font-size: 0.72rem;
+            color: var(--muted);
+        }
+
+        .source a { color: var(--sky-deep); text-decoration: none; font-weight: 600; }
+
+        footer {
+            background: var(--bg);
+            border-top: 1px solid var(--hairline);
+        }
+
+        .footer-bar {
+            display: flex;
+            align-items: center;
+            min-height: 84px;
+            gap: 24px;
+        }
+
+        .footer-links { display: flex; list-style: none; gap: 18px; flex-wrap: wrap; }
+        .footer-links a { text-decoration: none; color: var(--navy); font-size: 0.78rem; font-weight: 500; opacity: 0.75; }
+        .footer-end { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+
+        .footer-social {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .footer-social a {
+            display: grid;
+            place-items: center;
+            width: 36px;
+            height: 36px;
+            color: var(--navy);
+            opacity: 0.72;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        .footer-social a:hover { opacity: 1; background: var(--bg-soft); }
+        .footer-social svg { width: 17px; height: 17px; fill: currentColor; }
+        .footer-mail { color: var(--muted); font-size: 0.78rem; text-decoration: none; }
+
+        .footer-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px 24px;
+            flex-wrap: wrap;
+            padding: 14px 0 22px;
+            border-top: 1px solid var(--hairline);
+            font-size: 0.72rem;
+            color: var(--muted);
+        }
+
+        .footer-meta .tag {
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--sky);
+            font-weight: 600;
+        }
+
+        @media (max-width: 960px) {
+            :root { --nav-h: 64px; }
+            .wrap { width: min(1120px, calc(100% - 28px)); }
+            .nav { gap: 12px; }
+            .page { padding: 36px 0 64px; }
+            .request-layout, .form-row { grid-template-columns: 1fr; }
+            .request-form, .model-board { padding: 22px 18px; }
+            .menu-toggle { display: block; min-width: 44px; min-height: 44px; }
+            .nav-more { display: list-item; }
+            .nav-end .nav-cta {
+                display: inline-flex;
+                padding: 8px 12px;
+                font-size: 0.72rem;
+            }
+            .nav-links {
+                position: absolute;
+                top: calc(var(--nav-h) + env(safe-area-inset-top));
+                left: 0;
+                right: 0;
+                background: rgba(255,255,255,0.98);
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                padding: 8px 24px calc(18px + env(safe-area-inset-bottom));
+                display: none;
+                border-bottom: 1px solid var(--hairline);
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a { width: 100%; padding: 14px 0; font-size: 1rem; min-height: 44px; }
+            header .brand-lockup { gap: 8px; }
+            header .brand-lockup .logo-img { height: 42px; }
+            header .brand-lockup .logo-img.cg { height: 16px; }
+            header .lockup-rule { height: 24px; }
+            .footer-bar {
+                flex-wrap: wrap;
+                min-height: auto;
+                padding: 18px 0 calc(8px + env(safe-area-inset-bottom));
+            }
+            .footer-links { width: 100%; order: 3; padding: 6px 0 10px; }
+            .footer-mail { display: none; }
+            .btn { width: 100%; min-height: 48px; }
+            .model-card { min-height: 72px; }
+            .brand-tabs button { min-height: 40px; }
+            body.menu-open { overflow: hidden; }
+        }
+
+        @media (max-width: 560px) {
+            h1 { font-size: 2.1rem; }
+            .lead { font-size: 1rem; }
+            .model-card .top { flex-direction: column; gap: 4px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrap nav">
+            <a class="brand-lockup" href="index.html" aria-label="Panda Wheels — CG Motors">
+                <img class="logo-img" src="assets/panda-wheels.png" alt="Panda Wheels">
+                <span class="lockup-rule" aria-hidden="true"></span>
+                <img class="logo-img cg" src="assets/cg-motors.png" alt="CG Motors">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#lineup">Lineup</a></li>
+                <li><a href="index.html#charging">Charging</a></li>
+                <li><a href="emi.html">Finance</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li class="nav-more"><a href="request.html">Request</a></li>
+                <li class="nav-more"><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-end">
+                <a class="nav-cta" href="request.html">Request a Vehicle</a>
+                <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="page">
+        <div class="wrap">
+            <p class="kicker">Request</p>
+            <h1>Request a vehicle.</h1>
+            <p class="lead">Choose a model from the CG Motors lineup we keep at Panda Wheels. We will follow up from Panipokhari.</p>
+
+            <div class="request-layout">
+                <div class="request-form">
+                    <form id="request-form" novalidate>
+                        <div class="form-row">
+                            <div>
+                                <label for="name">Name</label>
+                                <input id="name" name="name" type="text" autocomplete="name" required>
+                            </div>
+                            <div>
+                                <label for="phone">Phone</label>
+                                <input id="phone" name="phone" type="tel" autocomplete="tel">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" autocomplete="email" required>
+                        </div>
+                        <div class="form-row">
+                            <div>
+                                <label for="brand">Brand</label>
+                                <select id="brand" name="brand" required>
+                                    <option value="">Select brand</option>
+                                    <option value="AION">AION</option>
+                                    <option value="XPENG">XPENG</option>
+                                    <option value="RIDDARA">RIDDARA</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="model">Model</label>
+                                <select id="model" name="model" required>
+                                    <option value="">Select a brand first</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div>
+                                <label for="city">City</label>
+                                <input id="city" name="city" type="text" autocomplete="address-level2" placeholder="Kathmandu">
+                            </div>
+                            <div>
+                                <label for="interest">I’m interested in</label>
+                                <select id="interest" name="interest">
+                                    <option value="Purchase">Purchase</option>
+                                    <option value="Test drive">Test drive</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Availability">Availability</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Colour, timing, or anything we should know."></textarea>
+                        </div>
+                        <label class="check">
+                            <input id="finance" name="finance" type="checkbox">
+                            I’d like help with bank finance
+                        </label>
+                        <button class="btn" type="submit">Enquire on WhatsApp</button>
+                        <p class="form-note" id="form-note" role="status"></p>
+                    </form>
+                </div>
+
+                <aside class="model-board">
+                    <div class="board-head">
+                        <h2>Models we list</h2>
+                        <p>Official CG Motors names</p>
+                    </div>
+                    <div class="brand-tabs" id="brand-tabs"></div>
+                    <div class="model-list" id="model-list"></div>
+                    <p class="source">Model names from <a href="https://gac.cgmotors.com.np" target="_blank" rel="noopener noreferrer">AION</a>, <a href="https://xpeng.cgmotors.com.np" target="_blank" rel="noopener noreferrer">XPENG</a>, and <a href="https://radar.cgmotors.com.np" target="_blank" rel="noopener noreferrer">RIDDARA</a>.</p>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="wrap footer-bar">
+            <a class="brand-lockup" href="index.html" aria-label="Panda Wheels — CG Motors">
+                <img class="logo-img" src="assets/panda-wheels.png" alt="Panda Wheels">
+                <span class="lockup-rule" aria-hidden="true"></span>
+                <img class="logo-img cg" src="assets/cg-motors.png" alt="CG Motors">
+            </a>
+            <ul class="footer-links">
+                <li><a href="index.html#lineup">Lineup</a></li>
+                <li><a href="index.html#charging">Charging</a></li>
+                <li><a href="emi.html">Finance</a></li>
+                <li><a href="request.html">Request</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="footer-end">
+                <div class="footer-social">
+                    <a href="https://www.tiktok.com/@panda.wheels4" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3h2.2c.2 1.9 1.4 3.5 3.3 4v2.2c-1.2.1-2.3-.2-3.3-.8v6.7c0 3.4-2.7 6.1-6.2 6.1S4.3 18.5 4.3 15.1c0-3.3 2.6-6 5.9-6.1v2.3c-2 .1-3.6 1.8-3.6 3.8s1.7 3.7 3.8 3.7 3.6-1.5 3.8-3.4V3z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/panda.wheels4" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 8.5V6.8c0-.7.5-1.3 1.2-1.3H17V3h-2.1C12.4 3 11 4.5 11 6.5v2H9v2.7h2V21h3.5v-9.8h2.3l.5-2.7h-2.8z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/panda.wheels4/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.2A4.8 4.8 0 1 0 16.8 12 4.8 4.8 0 0 0 12 7.2zm0 7.9A3.1 3.1 0 1 1 15.1 12 3.1 3.1 0 0 1 12 15.1zm6.2-8.2a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1zM12 4.5c-1.6 0-1.8 0-2.5.1a5 5 0 0 0-3.4 2 5 5 0 0 0-1.1 2.4C5 9.6 5 9.8 5 12s0 2.4.1 3.1a5 5 0 0 0 1.1 2.4 5 5 0 0 0 3.4 1.9c.7.1.9.1 2.5.1s1.8 0 2.5-.1a5 5 0 0 0 3.4-1.9 5 5 0 0 0 1.1-2.4c.1-.7.1-.9.1-3.1s0-2.4-.1-3.1a5 5 0 0 0-1.1-2.4 5 5 0 0 0-3.4-2C13.8 4.5 13.6 4.5 12 4.5zm0 1.8c1.6 0 1.8 0 2.4.1a3.2 3.2 0 0 1 2.1 1.2 3.2 3.2 0 0 1 .7 1.6c.1.6.1.8.1 2.4s0 1.8-.1 2.4a3.2 3.2 0 0 1-.7 1.6 3.2 3.2 0 0 1-2.1 1.2c-.6.1-.8.1-2.4.1s-1.8 0-2.4-.1a3.2 3.2 0 0 1-2.1-1.2 3.2 3.2 0 0 1-.7-1.6c-.1-.6-.1-.8-.1-2.4s0-1.8.1-2.4a3.2 3.2 0 0 1 .7-1.6 3.2 3.2 0 0 1 2.1-1.2c.6-.1.8-.1 2.4-.1z"/></svg>
+                    </a>
+                </div>
+                <a class="footer-mail" href="mailto:info.pandawheels@gmail.com">info.pandawheels@gmail.com</a>
+                <a class="nav-cta" href="request.html">Request a Vehicle</a>
+            </div>
+        </div>
+        <div class="wrap footer-meta">
+            <span>© 2026 Panda Wheels · Authorised CG Motors partner</span>
+            <span class="tag">Growing Together</span>
+            <span>Panipokhari, Kathmandu 03</span>
+        </div>
+    </footer>
+
+    <script>
+        const models = [
+            { id: 'aion-y', brand: 'AION', name: 'AION Y', meta: '61.54 kWh · 500 km NEDC · 100 kW' },
+            { id: 'aion-v-elite', brand: 'AION', name: 'AION V Elite', meta: '64.5 kWh · 520 km NEDC · 100 kW' },
+            { id: 'aion-v-luxury', brand: 'AION', name: 'AION V Luxury', meta: '75.3 kWh · 650 km NEDC · 100 kW' },
+            { id: 'xpeng-g6', brand: 'XPENG', name: 'XPENG G6 Standard Range', meta: 'RWD · 190 kW · 440 Nm · 435 km WLTP' },
+            { id: 'xpeng-x9', brand: 'XPENG', name: 'XPENG X9', meta: 'Seven-seater MPV' },
+            { id: 'riddara-2wd', brand: 'RIDDARA', name: 'RIDDARA RD6 2WD', meta: '200 kW · 63 kWh · 373 km NEDC' },
+            { id: 'riddara-econ-4wd', brand: 'RIDDARA', name: 'RIDDARA Econ 4WD', meta: '280 kW · 73 kWh' },
+            { id: 'riddara-rd6-4wd', brand: 'RIDDARA', name: 'RIDDARA RD6 4WD', meta: '315 kW · 73 kWh · 424 km NEDC' },
+            { id: 'riddara-rd6-4wd-sunroof', brand: 'RIDDARA', name: 'RIDDARA RD6 4WD Sunroof', meta: '315 kW · 73 kWh · sunroof' },
+            { id: 'riddara-rd6-4wd-dual', brand: 'RIDDARA', name: 'RIDDARA RD6 4WD Sunroof Dual Tone', meta: '315 kW · 73 kWh · dual tone' }
+        ];
+
+        const brands = ['AION', 'XPENG', 'RIDDARA'];
+        const brandEl = document.getElementById('brand');
+        const modelEl = document.getElementById('model');
+        const listEl = document.getElementById('model-list');
+        const tabsEl = document.getElementById('brand-tabs');
+        let tabBrand = 'AION';
+        let selected = '';
+
+        const fillModels = (brand, keep) => {
+            const list = models.filter((item) => item.brand === brand);
+            const current = keep && list.some((item) => item.id === modelEl.value) ? modelEl.value : '';
+            modelEl.innerHTML = `<option value="">Select model</option>` + list.map((item) =>
+                `<option value="${item.id}">${item.name}</option>`
+            ).join('');
+            if (current) modelEl.value = current;
+        };
+
+        const renderCards = () => {
+            const list = models.filter((item) => item.brand === tabBrand);
+            listEl.innerHTML = list.map((item) => `
+                <button type="button" class="model-card${item.id === selected ? ' is-on' : ''}" data-id="${item.id}">
+                    <div class="top">
+                        <h3>${item.name}</h3>
+                        <span class="price">Enquire Now</span>
+                    </div>
+                    <p class="meta">${item.meta}</p>
+                </button>
+            `).join('');
+        };
+
+        tabsEl.innerHTML = brands.map((brand) =>
+            `<button type="button" data-brand="${brand}" class="${brand === tabBrand ? 'is-on' : ''}">${brand}</button>`
+        ).join('');
+
+        tabsEl.addEventListener('click', (event) => {
+            const btn = event.target.closest('button');
+            if (!btn) return;
+            tabBrand = btn.dataset.brand;
+            tabsEl.querySelectorAll('button').forEach((item) => item.classList.toggle('is-on', item === btn));
+            renderCards();
+        });
+
+        listEl.addEventListener('click', (event) => {
+            const card = event.target.closest('.model-card');
+            if (!card) return;
+            const item = models.find((model) => model.id === card.dataset.id);
+            if (!item) return;
+            selected = item.id;
+            brandEl.value = item.brand;
+            fillModels(item.brand, false);
+            modelEl.value = item.id;
+            renderCards();
+        });
+
+        brandEl.addEventListener('change', () => {
+            tabBrand = brandEl.value || tabBrand;
+            tabsEl.querySelectorAll('button').forEach((item) => item.classList.toggle('is-on', item.dataset.brand === tabBrand));
+            fillModels(brandEl.value, false);
+            selected = '';
+            renderCards();
+        });
+
+        modelEl.addEventListener('change', () => {
+            selected = modelEl.value;
+            const item = models.find((model) => model.id === selected);
+            if (item) {
+                tabBrand = item.brand;
+                tabsEl.querySelectorAll('button').forEach((btn) => btn.classList.toggle('is-on', btn.dataset.brand === tabBrand));
+            }
+            renderCards();
+        });
+
+        const params = new URLSearchParams(location.search);
+        const preset = models.find((item) => item.id === params.get('model') || item.brand === params.get('brand'));
+        if (preset) {
+            tabBrand = preset.brand;
+            selected = params.get('model') === preset.id ? preset.id : '';
+            brandEl.value = preset.brand;
+            fillModels(preset.brand, false);
+            if (selected) modelEl.value = selected;
+            tabsEl.querySelectorAll('button').forEach((btn) => btn.classList.toggle('is-on', btn.dataset.brand === tabBrand));
+        }
+
+        renderCards();
+
+        const toggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.nav-links');
+        const setMenu = (open) => {
+            nav.classList.toggle('open', open);
+            toggle.classList.toggle('is-open', open);
+            toggle.setAttribute('aria-expanded', String(open));
+            document.body.classList.toggle('menu-open', open);
+        };
+        toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+        nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+
+        const form = document.getElementById('request-form');
+        const note = document.getElementById('form-note');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const name = form.name.value.trim();
+            const email = form.email.value.trim();
+            const phone = form.phone.value.trim();
+            const city = form.city.value.trim();
+            const brand = form.brand.value;
+            const modelId = form.model.value;
+            const interest = form.interest.value;
+            const message = form.message.value.trim();
+            const finance = form.finance.checked;
+            const model = models.find((item) => item.id === modelId);
+
+            if (!name || !email || !brand || !model) {
+                note.textContent = 'Please add your name, email, brand, and model.';
+                note.className = 'form-note err';
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                note.textContent = 'Please enter a valid email address.';
+                note.className = 'form-note err';
+                return;
+            }
+
+            const text = [
+                'Panda Wheels vehicle request',
+                `Name: ${name}`,
+                `Email: ${email}`,
+                phone ? `Phone: ${phone}` : '',
+                city ? `City: ${city}` : '',
+                `Brand: ${brand}`,
+                `Model: ${model.name}`,
+                `Interest: ${interest}`,
+                finance ? 'Finance: Yes' : 'Finance: No',
+                message ? `\n${message}` : ''
+            ].filter(Boolean).join('\n');
+
+            window.location.href = `https://wa.me/9779761633331?text=${encodeURIComponent(text)}`;
+            note.textContent = 'Opening WhatsApp…';
+            note.className = 'form-note ok';
+        });
+    </script>
+</body>
+</html>
