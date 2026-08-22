@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#ffffff">
     <title>Contact | Panda Wheels</title>
-    <meta name="description" content="Visit Panda Wheels in Panipokhari, Kathmandu, or send a note on WhatsApp. Authorised CG Motors partner for AION, XPENG, and RIDDARA.">
+    <meta name="description" content="Visit Panda Wheels in Lalitpur, or send a note on WhatsApp. Authorised CG Motors partner for AION, XPENG, and RIDDARA.">
+    <meta property="og:title" content="Contact | Panda Wheels">
+    <meta property="og:description" content="WhatsApp, email, or visit the showroom in Lalitpur.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/cars/xpeng-g6.jpg">
     <link rel="icon" type="image/png" href="assets/panda-wheels.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +30,12 @@
         }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top) + 10px);
+            overflow-x: clip;
+            overscroll-behavior-x: none;
+        }
         a, button, input, textarea, select, label { cursor: pointer; }
 
         body {
@@ -35,7 +44,10 @@
             color: var(--text);
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
+            overflow-x: clip;
+            overscroll-behavior-x: none;
+            width: 100%;
+            position: relative;
             padding-left: env(safe-area-inset-left);
             padding-right: env(safe-area-inset-right);
         }
@@ -154,6 +166,18 @@
             color: var(--sky);
             margin-bottom: 14px;
         }
+
+        .crumbs {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .crumbs a { color: var(--muted); text-decoration: none; font-weight: 500; }
+        .crumbs a:hover { color: var(--navy); }
 
         h1 {
             font-size: clamp(2.2rem, 5vw, 3.4rem);
@@ -618,9 +642,10 @@
 
     <main class="page">
         <div class="wrap">
+            <p class="crumbs"><a href="index.html">Home</a><span>/</span>Contact</p>
             <p class="kicker">Contact</p>
             <h1>Get in Touch</h1>
-            <p class="lead">Visit us in Panipokhari, or send a note. We reply on WhatsApp.</p>
+            <p class="lead">Visit us in Lalitpur, or send a note. We reply on WhatsApp.</p>
 
             <div class="channels">
                 <a class="channel" href="https://wa.me/9779761633331" target="_blank" rel="noopener noreferrer">
@@ -641,13 +666,13 @@
                         <span>info.pandawheels@gmail.com</span>
                     </span>
                 </a>
-                <a class="channel" href="https://www.google.com/maps/search/?api=1&query=Panipokhari%2C%20Kathmandu%2003" target="_blank" rel="noopener noreferrer">
+                <a class="channel" href="https://www.google.com/maps/search/?api=1&query=Lalitpur%2C%20Nepal" target="_blank" rel="noopener noreferrer">
                     <i aria-hidden="true">
                         <svg viewBox="0 0 24 24"><path d="M12 2.8a7.2 7.2 0 0 0-7.2 7.2c0 5.3 7.2 11.2 7.2 11.2s7.2-5.9 7.2-11.2A7.2 7.2 0 0 0 12 2.8zm0 9.7a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
                     </i>
                     <span>
                         <b>Showroom</b>
-                        <span>Panipokhari, Kathmandu 03</span>
+                        <span>Lalitpur, Nepal</span>
                     </span>
                 </a>
             </div>
@@ -691,14 +716,14 @@
                 </div>
                 <div class="map-side">
                     <iframe
-                        title="Panda Wheels — Panipokhari, Kathmandu"
+                        title="Panda Wheels — Lalitpur"
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
-                        src="https://maps.google.com/maps?q=Panipokhari%2C%20Kathmandu%2003&z=16&output=embed">
+                        src="https://maps.google.com/maps?q=Lalitpur%2C%20Nepal&z=13&output=embed">
                     </iframe>
                     <div class="map-card">
-                        <p>Showroom<strong>Panipokhari, Kathmandu 03</strong></p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Panipokhari%2C%20Kathmandu%2003" target="_blank" rel="noopener noreferrer">Open map</a>
+                        <p>Showroom<strong>Lalitpur, Nepal</strong></p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Lalitpur%2C%20Nepal" target="_blank" rel="noopener noreferrer">Open map</a>
                     </div>
                 </div>
             </div>
@@ -707,6 +732,7 @@
             <div class="text-links">
                 <a href="request.html">Request a vehicle <span>›</span></a>
                 <a href="emi.html">EMI calculator <span>›</span></a>
+                <a href="index.html#lineup">See the lineup <span>›</span></a>
             </div>
         </div>
     </main>
@@ -722,6 +748,7 @@
                 <li><a href="index.html#lineup">Lineup</a></li>
                 <li><a href="index.html#charging">Charging</a></li>
                 <li><a href="emi.html">Finance</a></li>
+                <li><a href="index.html#about">About</a></li>
                 <li><a href="request.html">Request</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -744,7 +771,7 @@
         <div class="wrap footer-meta">
             <span>© 2026 Panda Wheels · Authorised CG Motors partner</span>
             <span class="tag">Growing Together</span>
-            <span>Panipokhari, Kathmandu 03</span>
+            <span>Lalitpur, Nepal</span>
         </div>
     </footer>
 

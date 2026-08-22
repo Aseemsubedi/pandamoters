@@ -5,8 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#ffffff">
     <title>Panda Wheels | Authorised CG Motors Partner</title>
-    <meta name="description" content="Panda Wheels is an authorised CG Motors partner in Panipokhari, Kathmandu. AION, XPENG, and RIDDARA. Charging across Nepal.">
+    <meta name="description" content="Panda Wheels is an authorised CG Motors partner in Lalitpur. AION, XPENG, and RIDDARA. Charging across Nepal.">
+    <meta property="og:title" content="Panda Wheels | Authorised CG Motors Partner">
+    <meta property="og:description" content="A house of AION, XPENG, and RIDDARA in Lalitpur. Choose a vehicle, estimate EMI, find a charger.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/cars/xpeng-g6.jpg">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/png" href="assets/panda-wheels.png">
+    <link rel="apple-touch-icon" href="assets/panda-wheels.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -26,7 +32,12 @@
         }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top) + 10px);
+            overflow-x: clip;
+            overscroll-behavior-x: none;
+        }
         a, button, input, textarea, select, label { cursor: pointer; }
 
         body {
@@ -35,7 +46,10 @@
             color: var(--text);
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
+            overflow-x: clip;
+            overscroll-behavior-x: none;
+            width: 100%;
+            position: relative;
             padding-left: env(safe-area-inset-left);
             padding-right: env(safe-area-inset-right);
         }
@@ -208,6 +222,7 @@
             position: relative;
             padding: 64px 0 40px;
             text-align: center;
+            overflow: hidden;
         }
 
         .orb {
@@ -373,7 +388,6 @@
 
         .hero-stage::before,
         .hero-tile.photo::before,
-        .brand-card::before,
         .about-photo::before {
             content: "";
             position: absolute;
@@ -386,7 +400,6 @@
 
         .hero-stage:hover::before,
         .hero-tile.photo:hover::before,
-        .brand-card:hover::before,
         .about-photo:hover::before {
             animation: shine 0.85s ease;
         }
@@ -478,100 +491,318 @@
         }
 
         /* Lineup */
-        .brand-grid {
+        .brand-jump {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            grid-template-rows: 1fr 1fr;
-            gap: 14px;
-            min-height: 560px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
         }
 
-        .brand-card {
-            position: relative;
+        .jump {
             display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            overflow: hidden;
-            border-radius: var(--radius);
-            min-height: 240px;
+            align-items: center;
+            gap: 14px;
+            min-height: 88px;
+            padding: 16px 18px;
+            background: #fff;
+            border-radius: 20px;
             text-decoration: none;
+            color: inherit;
+            border: 1px solid transparent;
+            box-shadow: 0 10px 28px rgba(0, 16, 64, 0.05);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .jump:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 36px rgba(0, 16, 64, 0.1);
+        }
+
+        .jump img {
+            height: 28px;
+            width: auto;
+            max-width: 108px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .jump b {
+            display: block;
+            font-size: 1.02rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+        }
+
+        .jump small {
+            display: block;
+            margin-top: 2px;
+            font-size: 0.76rem;
+            color: var(--muted);
+        }
+
+        .jump.aion { border-color: color-mix(in srgb, #2563eb 22%, white); }
+        .jump.aion b { color: #2563eb; }
+        .jump.xpeng {
+            background: #0b0b0b;
             color: #fff;
-            isolation: isolate;
-            transform-style: preserve-3d;
-            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
-            will-change: transform;
+        }
+        .jump.xpeng img { height: 22px; }
+        .jump.xpeng small { color: rgba(255,255,255,0.62); }
+        .jump.riddara {
+            background: #0b0b0b;
+            color: #fff;
+        }
+        .jump.riddara img { height: 28px; }
+        .jump.riddara b { color: #ff5b00; }
+        .jump.riddara small { color: rgba(255,255,255,0.62); }
+
+        .lineup-models {
+            margin-top: 22px;
+            display: grid;
+            gap: 22px;
         }
 
-        .brand-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 24px 52px rgba(0, 16, 64, 0.16);
+        .lineup-floor {
+            background: var(--brand-soft, var(--bg-soft));
+            border-radius: 28px;
+            padding: 26px 22px 22px;
         }
 
-        .brand-card.aion {
-            grid-row: 1 / span 2;
-            min-height: 460px;
+        .floor-aion {
+            --brand: #2563eb;
+            --brand-hover: #1d4ed8;
+            --brand-soft: #eef3ff;
         }
 
-        .brand-card.aion .brand-photo { object-position: 55% 50%; }
+        .floor-xpeng {
+            --brand: #0b0b0b;
+            --brand-hover: #3c3f46;
+            --brand-soft: #f2f3f5;
+        }
 
-        .brand-photo {
+        .floor-riddara {
+            --brand: #ff5b00;
+            --brand-hover: #e04f00;
+            --brand-soft: #fff3eb;
+        }
+
+        .lineup-group-head {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .lineup-group-head h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: -0.035em;
+            color: var(--brand, var(--navy));
+        }
+
+        .lineup-group-head p {
+            color: var(--muted);
+            font-size: 0.88rem;
+            margin-top: 4px;
+        }
+
+        .lineup-group-head a {
+            color: var(--brand, var(--sky-deep));
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            padding-top: 6px;
+        }
+
+        .lineup-stage {
+            display: grid;
+            grid-template-columns: 1.12fr 0.88fr;
+            gap: 16px;
+            align-items: stretch;
+        }
+
+        .lineup-hero {
+            position: relative;
+            margin: 0;
+            min-height: 360px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #d7dee8;
+        }
+
+        .lineup-hero img {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: 0;
-            transform: scale(1.05);
-            animation: ken 24s ease-in-out infinite alternate;
         }
 
-        .brand-card:hover .brand-photo {
-            animation-play-state: paused;
-            transform: scale(1.1);
-            transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .brand-card::after {
-            content: "";
+        .lineup-hero .cap {
             position: absolute;
-            inset: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             z-index: 1;
-            background: linear-gradient(180deg, rgba(0, 16, 64, 0.08) 28%, rgba(0, 16, 64, 0.72) 100%);
+            padding: 48px 22px 20px;
+            background: linear-gradient(180deg, transparent, rgba(0, 16, 64, 0.78));
+            color: #fff;
         }
 
-        .brand-copy {
-            position: relative;
-            z-index: 3;
-            padding: 24px 26px 22px;
+        .lineup-hero .cap span {
+            display: block;
+            font-size: 0.66rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-weight: 600;
+            opacity: 0.8;
+            margin-bottom: 6px;
         }
 
-        .brand-card h3 {
-            font-size: 1.55rem;
+        .lineup-hero .cap strong {
+            font-size: 1.45rem;
+            font-weight: 600;
+            letter-spacing: -0.035em;
+        }
+
+        .variants {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-height: 100%;
+        }
+
+        .variant {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 6px 14px;
+            align-items: center;
+            flex: 1;
+            background: #fff;
+            border-radius: 16px;
+            padding: 14px 16px;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid transparent;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .variant:hover {
+            transform: translateY(-2px);
+            border-color: color-mix(in srgb, var(--brand) 45%, white);
+            box-shadow: 0 12px 28px rgba(0, 16, 64, 0.08);
+        }
+
+        .variant h4 {
+            font-size: 1.02rem;
             font-weight: 600;
             letter-spacing: -0.03em;
         }
 
-        .brand-card .tagline {
-            margin-top: 4px;
-            color: rgba(255,255,255,0.78);
-            font-size: 0.92rem;
+        .variant .hint {
+            display: block;
+            margin-top: 2px;
+            font-size: 0.76rem;
+            color: var(--muted);
         }
 
-        .brand-card .group {
-            font-size: 0.68rem;
-            letter-spacing: 0.16em;
+        .v-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px;
+            grid-column: 1;
+        }
+
+        .v-stats span {
+            font-size: 0.62rem;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--sky);
-            margin-bottom: 4px;
+            color: var(--muted);
             font-weight: 600;
         }
 
-        .brand-card .go {
-            display: inline-block;
-            margin-top: 12px;
+        .v-stats b {
+            display: block;
+            margin-top: 2px;
             font-size: 0.9rem;
             font-weight: 600;
+            letter-spacing: -0.03em;
+            color: var(--navy);
+        }
+
+        .v-go {
+            grid-row: 1 / span 2;
+            align-self: center;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: var(--brand, var(--navy));
             color: #fff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .variant:hover .v-go { background: var(--brand-hover, var(--sky-deep)); }
+
+        .lineup-note {
+            margin-top: 16px;
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        .path-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .path-card {
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border-radius: 20px;
+            padding: 22px 22px 20px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 10px 28px rgba(0, 16, 64, 0.05);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .path-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 36px rgba(0, 16, 64, 0.1);
+        }
+
+        .path-card em {
+            font-style: normal;
+            font-size: 0.66rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--sky);
+        }
+
+        .path-card h3 {
+            margin-top: 8px;
+            font-size: 1.12rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+        }
+
+        .path-card p {
+            margin-top: 6px;
+            color: var(--muted);
+            font-size: 0.86rem;
+            flex: 1;
+        }
+
+        .path-card span {
+            margin-top: 14px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            color: var(--sky-deep);
         }
 
         /* Charging */
@@ -989,6 +1220,72 @@
         }
 
         /* Finance */
+        .finance-cta {
+            display: grid;
+            grid-template-columns: 1.12fr 0.88fr;
+            gap: 14px;
+            max-width: 920px;
+            margin: 0 auto 32px;
+        }
+
+        .finance-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 210px;
+            padding: 28px 28px 24px;
+            border-radius: 24px;
+            text-decoration: none;
+            color: #fff;
+            background: var(--navy);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .finance-panel:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 40px rgba(0, 16, 64, 0.18);
+        }
+
+        .finance-panel.alt {
+            background: #fff;
+            color: var(--navy);
+            border: 1px solid var(--hairline);
+        }
+
+        .finance-panel em {
+            font-style: normal;
+            font-size: 0.66rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--sky);
+        }
+
+        .finance-panel.alt em { color: var(--sky); }
+
+        .finance-panel h3 {
+            margin-top: 10px;
+            font-size: 1.55rem;
+            font-weight: 600;
+            letter-spacing: -0.035em;
+        }
+
+        .finance-panel p {
+            margin-top: 8px;
+            font-size: 0.92rem;
+            opacity: 0.78;
+            max-width: 32ch;
+        }
+
+        .finance-panel.alt p { opacity: 1; color: var(--muted); }
+
+        .finance-panel span {
+            display: inline-block;
+            margin-top: 22px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
         .bank-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
@@ -1311,6 +1608,7 @@
             position: relative;
             background: var(--navy);
             min-height: 100%;
+            overflow: hidden;
         }
 
         .map-side iframe {
@@ -1566,7 +1864,8 @@
             .hero-stage h2 { font-size: 1.45rem; }
             .hero-tile h3 { font-size: 1.05rem; }
 
-            .brand-grid, .about-layout, .charge-layout, .contact-board {
+            .finance-cta { grid-template-columns: 1fr; }
+            .about-layout, .charge-layout, .contact-board {
                 display: grid;
                 grid-template-columns: 1fr;
             }
@@ -1582,12 +1881,15 @@
             }
             .hero-stage img,
             .hero-tile img,
-            .brand-photo,
             .about-photo img,
-            .charge-visual img {
+            .charge-visual img,
+            .lineup-hero img {
                 animation: none;
                 transform: none;
             }
+
+            .lineup-stage { grid-template-columns: 1fr; }
+            .lineup-hero { min-height: 240px; }
             .about-photo img { aspect-ratio: 4 / 5; }
 
             .charge-finder { order: -1; min-height: 0; }
@@ -1598,13 +1900,12 @@
                 flex-wrap: nowrap;
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
+                overscroll-behavior-x: contain;
                 padding-bottom: 4px;
             }
             .charge-search, .charge-filters select { font-size: 16px; }
 
-            .brand-card.aion { grid-row: auto; min-height: 280px; }
-            .brand-card { min-height: 200px; }
-            .brand-grid { min-height: 0; gap: 10px; }
+            .path-card { min-height: 0; }
 
             .menu-toggle { display: block; min-width: 44px; min-height: 44px; }
             .nav-more { display: list-item; }
@@ -1654,8 +1955,30 @@
             .contact-board { min-height: 0; }
             .map-side { min-height: 300px; }
             .map-side iframe { position: relative; min-height: 300px; }
-            .orb { opacity: 0.45; }
+            .orb { display: none; }
             body.menu-open { overflow: hidden; }
+        }
+
+        @media (max-width: 960px), (hover: none) {
+            html { scroll-behavior: auto; }
+            .hero-mosaic { perspective: none; }
+            .hero-stage,
+            .hero-tile,
+            .about-photo {
+                transform-style: flat;
+                will-change: auto;
+            }
+            .hero-stage:hover,
+            .hero-tile:hover,
+            .jump:hover,
+            .path-card:hover,
+            .finance-panel:hover,
+            .variant:hover,
+            .channel:hover,
+            .bank-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
         }
 
         @media (max-width: 560px) {
@@ -1677,6 +2000,17 @@
             .bank-card { min-height: 88px; }
             .form-row { grid-template-columns: 1fr; }
             .btn { width: 100%; }
+            .brand-jump, .path-strip { grid-template-columns: 1fr; }
+            .lineup-floor { padding: 18px 14px 14px; }
+            .lineup-group-head { flex-direction: column; gap: 6px; }
+            .variant {
+                grid-template-columns: 1fr;
+            }
+            .v-go {
+                grid-row: auto;
+                justify-self: start;
+                margin-top: 4px;
+            }
             .wa-copy { display: none; }
             .wa-btn { width: 54px; height: 54px; }
         }
@@ -1684,9 +2018,9 @@
         @media (prefers-reduced-motion: reduce) {
             .animate-on-scroll { opacity: 1; animation: none; }
             .orb, .hero h1 em,
-            .hero-stage img, .hero-tile img, .brand-photo, .about-photo img, .charge-visual img,
+            .hero-stage img, .hero-tile img, .about-photo img, .charge-visual img,
             .about-gallery .about-photo, .charge-row { animation: none !important; }
-            .hero-stage:hover, .hero-tile:hover, .brand-card:hover { transform: none; }
+            .hero-stage:hover, .hero-tile:hover, .jump:hover, .path-card:hover, .finance-panel:hover, .variant:hover { transform: none; }
             .wa-btn::after { animation: none; }
         }
     </style>
@@ -1723,17 +2057,17 @@
             <div class="wrap">
                 <p class="kicker animate-on-scroll">Growing Together</p>
                 <h1 class="animate-on-scroll">Drive the <em>Future.</em></h1>
-                <p class="hero-sub animate-on-scroll">Panda Wheels. An authorised partner of CG Motors in Panipokhari, Kathmandu.</p>
+                <p class="hero-sub animate-on-scroll">Panda Wheels. An authorised partner of CG Motors in Lalitpur.</p>
                 <div class="text-links animate-on-scroll">
-                    <a href="#lineup">Explore the lineup <span>›</span></a>
+                    <a href="#lineup">Choose a vehicle <span>›</span></a>
                     <a href="request.html">Request a vehicle <span>›</span></a>
-                    <a href="#charging">Find a charger <span>›</span></a>
+                    <a href="emi.html">Estimate EMI <span>›</span></a>
                 </div>
                 <div class="hero-mosaic">
                     <a class="hero-stage animate-on-scroll" href="#lineup">
                         <img src="assets/cars/xpeng-g6.jpg" alt="XPENG G6">
                         <div class="copy">
-                            <p>Lineup</p>
+                            <p>01 · Choose</p>
                             <h2>AION. XPENG. RIDDARA.</h2>
                             <span>See the lineup ›</span>
                         </div>
@@ -1741,7 +2075,7 @@
                     <a class="hero-tile photo animate-on-scroll" href="#charging">
                         <img src="assets/cars/charging.jpg" alt="CG Motors charging">
                         <div class="copy">
-                            <p>Charging</p>
+                            <p>02 · Charge</p>
                             <h3>GB/T and CCS2, nationwide.</h3>
                             <span>Find a charger ›</span>
                         </div>
@@ -1749,9 +2083,9 @@
                     <a class="hero-tile photo animate-on-scroll" href="emi.html">
                         <img src="assets/cars/riddara-rd6.jpg" alt="">
                         <div class="copy">
-                            <p>Finance</p>
-                            <h3>Pay over time with Nepal’s banks.</h3>
-                            <span>Estimate EMI ›</span>
+                            <p>03 · Pay</p>
+                            <h3>Estimate EMI with Nepal’s banks.</h3>
+                            <span>Open calculator ›</span>
                         </div>
                     </a>
                 </div>
@@ -1763,37 +2097,212 @@
                 <div class="section-head">
                     <p class="kicker animate-on-scroll">Lineup</p>
                     <h2 class="animate-on-scroll">Three names. One showroom.</h2>
-                    <p class="lead animate-on-scroll">AION, XPENG, and RIDDARA — chosen, financed, and cared for in Panipokhari.</p>
+                    <p class="lead animate-on-scroll">Pick a brand, compare the models we list, then enquire. Official specs stay one tap away.</p>
                 </div>
-                <div class="brand-grid">
-                    <a class="brand-card aion animate-on-scroll" href="https://gac.cgmotors.com.np" target="_blank" rel="noopener noreferrer">
-                        <img class="brand-photo" src="assets/cars/aion-v.jpg" alt="AION V">
-                        <div class="brand-copy">
-                            <h3>AION</h3>
-                            <p class="tagline">Intelligent design for Nepal’s roads.</p>
-                            <span class="go">Visit site <span>›</span></span>
-                        </div>
+                <nav class="brand-jump" aria-label="Jump to a brand">
+                    <a class="jump aion animate-on-scroll" href="#aion">
+                        <img src="assets/aion.png" alt="">
+                        <span>
+                            <b>AION</b>
+                            <small>Y · V Elite · V Luxury</small>
+                        </span>
                     </a>
-                    <a class="brand-card animate-on-scroll" href="https://xpeng.cgmotors.com.np" target="_blank" rel="noopener noreferrer">
-                        <img class="brand-photo" src="assets/cars/xpeng-g6.jpg" alt="XPENG G6">
-                        <div class="brand-copy">
-                            <h3>XPENG</h3>
-                            <p class="tagline">Smart performance. Pure driving.</p>
-                            <span class="go">Visit site <span>›</span></span>
-                        </div>
+                    <a class="jump xpeng animate-on-scroll" href="#xpeng">
+                        <img src="assets/xpeng.png" alt="">
+                        <span>
+                            <b>XPENG</b>
+                            <small>G6 · X9</small>
+                        </span>
                     </a>
-                    <a class="brand-card animate-on-scroll" href="https://radar.cgmotors.com.np" target="_blank" rel="noopener noreferrer">
-                        <img class="brand-photo" src="assets/cars/riddara-rd6.jpg" alt="RIDDARA RD6">
-                        <div class="brand-copy">
-                            <p class="group">Geely Auto Group</p>
-                            <h3>RIDDARA</h3>
-                            <p class="tagline">Capability for work and life.</p>
-                            <span class="go">Visit site <span>›</span></span>
-                        </div>
+                    <a class="jump riddara animate-on-scroll" href="#riddara">
+                        <img src="assets/riddara.png" alt="">
+                        <span>
+                            <b>RIDDARA</b>
+                            <small>RD6 2WD · 4WD</small>
+                        </span>
                     </a>
+                </nav>
+
+                <div class="lineup-models">
+                    <div class="lineup-floor floor-aion" id="aion">
+                        <div class="lineup-group-head">
+                            <div>
+                                <h3>AION</h3>
+                                <p>Family SUVs from GAC AION.</p>
+                            </div>
+                            <a href="https://gac.cgmotors.com.np" target="_blank" rel="noopener noreferrer">Official specs ›</a>
+                        </div>
+                        <div class="lineup-stage">
+                            <figure class="lineup-hero">
+                                <img src="assets/cars/aion-v.jpg" alt="AION V" style="object-position: 42% 50%;">
+                                <figcaption class="cap">
+                                    <span>AION</span>
+                                    <strong>Y · V Elite · V Luxury</strong>
+                                </figcaption>
+                            </figure>
+                            <div class="variants">
+                                <a class="variant animate-on-scroll" href="request.html?model=aion-y">
+                                    <div>
+                                        <h4>AION Y</h4>
+                                        <span class="hint">Family SUV. 225 Nm. 183 mm ground clearance. NEDC.</span>
+                                    </div>
+                                    <span class="v-go">Enquire</span>
+                                    <div class="v-stats">
+                                        <div><span>Range</span><b>500 km</b></div>
+                                        <div><span>Battery</span><b>61.54 kWh</b></div>
+                                        <div><span>Power</span><b>100 kW</b></div>
+                                    </div>
+                                </a>
+                                <a class="variant animate-on-scroll" href="request.html?model=aion-v-elite">
+                                    <div>
+                                        <h4>AION V Elite</h4>
+                                        <span class="hint">240 Nm. 185 mm ground clearance. 0–100 in 7.9 s. NEDC.</span>
+                                    </div>
+                                    <span class="v-go">Enquire</span>
+                                    <div class="v-stats">
+                                        <div><span>Range</span><b>520 km</b></div>
+                                        <div><span>Battery</span><b>64.5 kWh</b></div>
+                                        <div><span>Power</span><b>100 kW</b></div>
+                                    </div>
+                                </a>
+                                <a class="variant animate-on-scroll" href="request.html?model=aion-v-luxury">
+                                    <div>
+                                        <h4>AION V Luxury</h4>
+                                        <span class="hint">Longest AION range we list. 240 Nm. NEDC.</span>
+                                    </div>
+                                    <span class="v-go">Enquire</span>
+                                    <div class="v-stats">
+                                        <div><span>Range</span><b>650 km</b></div>
+                                        <div><span>Battery</span><b>75.3 kWh</b></div>
+                                        <div><span>Power</span><b>100 kW</b></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lineup-floor floor-xpeng" id="xpeng">
+                        <div class="lineup-group-head">
+                            <div>
+                                <h3>XPENG</h3>
+                                <p>Ultra smart coupe SUV, and a seven-seater MPV.</p>
+                            </div>
+                            <a href="https://xpeng.cgmotors.com.np" target="_blank" rel="noopener noreferrer">Official specs ›</a>
+                        </div>
+                        <div class="lineup-stage">
+                            <figure class="lineup-hero">
+                                <img src="assets/cars/xpeng-g6.jpg" alt="XPENG G6 Standard Range">
+                                <figcaption class="cap">
+                                    <span>XPENG</span>
+                                    <strong>G6 Standard Range</strong>
+                                </figcaption>
+                            </figure>
+                            <div class="variants">
+                                <a class="variant animate-on-scroll" href="request.html?model=xpeng-g6">
+                                    <div>
+                                        <h4>XPENG G6 Standard Range</h4>
+                                        <span class="hint">RWD coupe SUV. 440 Nm. 800V SEPA 2.0. 5-star ENCAP. WLTP.</span>
+                                    </div>
+                                    <span class="v-go">Enquire</span>
+                                    <div class="v-stats">
+                                        <div><span>Range</span><b>435 km</b></div>
+                                        <div><span>Power</span><b>190 kW</b></div>
+                                        <div><span>0–100</span><b>6.6 s</b></div>
+                                    </div>
+                                </a>
+                                <a class="variant animate-on-scroll" href="request.html?model=xpeng-x9">
+                                    <div>
+                                        <h4>XPENG X9</h4>
+                                        <span class="hint">Seven-seater MPV. Official XPENG Nepal page lists G6 — ask us for availability.</span>
+                                    </div>
+                                    <span class="v-go">Enquire</span>
+                                    <div class="v-stats">
+                                        <div><span>Type</span><b>MPV</b></div>
+                                        <div><span>Seats</span><b>Seven</b></div>
+                                        <div><span>Availability</span><b>Enquire</b></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lineup-floor floor-riddara" id="riddara">
+                        <div class="lineup-group-head">
+                            <div>
+                                <h3>RIDDARA</h3>
+                                <p>Electric pickup for work and family.</p>
+                            </div>
+                            <a href="https://radar.cgmotors.com.np" target="_blank" rel="noopener noreferrer">Official specs ›</a>
+                        </div>
+                        <div class="lineup-stage">
+                            <figure class="lineup-hero">
+                                <img src="assets/cars/riddara-rd6.jpg" alt="RIDDARA RD6" style="object-position: 30% 50%;">
+                                <figcaption class="cap">
+                                    <span>RIDDARA</span>
+                                    <strong>RD6 pickup</strong>
+                                </figcaption>
+                            </figure>
+                            <div class="variants">
+                                <a class="variant animate-on-scroll" href="request.html?model=riddara-2wd">
+                                    <div>
+                                        <h4>RD6 2WD</h4>
+                                        <span class="hint">385 Nm. 7.3 s 0–100. 1,030 kg cargo. 2,500 kg towing. NEDC.</span>
+                                    </div>
+                                    <span class="v-go">Enquire</span>
+                                    <div class="v-stats">
+                                        <div><span>Range</span><b>373 km</b></div>
+                                        <div><span>Battery</span><b>63 kWh</b></div>
+                                        <div><span>Power</span><b>200 kW</b></div>
+                                    </div>
+                                </a>
+                                <a class="variant animate-on-scroll" href="request.html?model=riddara-econ-4wd">
+                                    <div>
+                                        <h4>Econ 4WD</h4>
+                                        <span class="hint">Four-wheel-drive RD6 for mixed work and family use.</span>
+                                    </div>
+                                    <span class="v-go">Enquire</span>
+                                    <div class="v-stats">
+                                        <div><span>Drive</span><b>4WD</b></div>
+                                        <div><span>Battery</span><b>73 kWh</b></div>
+                                        <div><span>Power</span><b>280 kW</b></div>
+                                    </div>
+                                </a>
+                                <a class="variant animate-on-scroll" href="request.html?model=riddara-rd6-4wd">
+                                    <div>
+                                        <h4>RD6 4WD</h4>
+                                        <span class="hint">595 Nm. 4.5 s 0–100. 3,000 kg towing. Sunroof and dual tone on request. NEDC.</span>
+                                    </div>
+                                    <span class="v-go">Enquire</span>
+                                    <div class="v-stats">
+                                        <div><span>Range</span><b>424 km</b></div>
+                                        <div><span>Battery</span><b>73 kWh</b></div>
+                                        <div><span>Power</span><b>315 kW</b></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-links" style="margin-top: 28px;">
-                    <a href="request.html">Request a vehicle <span>›</span></a>
+                <p class="lineup-note">Battery, range, and power from official CG Motors pages for AION, XPENG, and RIDDARA. Range cycles differ (NEDC / WLTP). Enquire for the latest.</p>
+                <div class="path-strip">
+                    <a class="path-card animate-on-scroll" href="request.html">
+                        <em>Next</em>
+                        <h3>Request a vehicle</h3>
+                        <p>Tell us the model. We reply on WhatsApp from Lalitpur.</p>
+                        <span>Enquire now ›</span>
+                    </a>
+                    <a class="path-card animate-on-scroll" href="emi.html">
+                        <em>Finance</em>
+                        <h3>Estimate EMI</h3>
+                        <p>Reducing-balance calculator. Banks set the final rate.</p>
+                        <span>Open calculator ›</span>
+                    </a>
+                    <a class="path-card animate-on-scroll" href="#contact">
+                        <em>Visit</em>
+                        <h3>Talk to us</h3>
+                        <p>WhatsApp, email, or the showroom in Lalitpur.</p>
+                        <span>Get in touch ›</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -1832,6 +2341,7 @@
                         </div>
                         <div class="charge-chips" id="charge-chips">
                             <button type="button" data-q="Kathmandu">Kathmandu</button>
+                            <button type="button" data-q="Lalitpur">Lalitpur</button>
                             <button type="button" data-q="Pokhara">Pokhara</button>
                             <button type="button" data-q="Sindhuli">Sindhuli</button>
                             <button type="button" data-q="Hetauda">Hetauda</button>
@@ -1863,7 +2373,25 @@
                 <div class="section-head">
                     <p class="kicker animate-on-scroll">Finance</p>
                     <h2 class="animate-on-scroll">Pay over time.</h2>
-                    <p class="lead animate-on-scroll">Competitive rates from Nepal’s banks. One conversation at Panda Wheels.</p>
+                    <p class="lead animate-on-scroll">Estimate a monthly payment, then ask Panda Wheels to structure it with a Nepal bank.</p>
+                </div>
+                <div class="finance-cta">
+                    <a class="finance-panel animate-on-scroll" href="emi.html">
+                        <div>
+                            <em>Calculator</em>
+                            <h3>Estimate EMI</h3>
+                            <p>Reducing balance, rounded to the nearest paisa. Change amount, rate, and tenure.</p>
+                        </div>
+                        <span>Open calculator ›</span>
+                    </a>
+                    <a class="finance-panel alt animate-on-scroll" href="https://wa.me/9779761633331?text=I%27d%20like%20help%20with%20vehicle%20finance" target="_blank" rel="noopener noreferrer">
+                        <div>
+                            <em>Help</em>
+                            <h3>Talk finance</h3>
+                            <p>A banker still decides the rate. We help you start the conversation.</p>
+                        </div>
+                        <span>Enquire on WhatsApp ›</span>
+                    </a>
                 </div>
                 <div class="bank-grid">
                     <article class="bank-card"><img src="assets/banks/nabil.png" alt="" onerror="this.remove()"><span>Nabil Bank</span></article>
@@ -1884,11 +2412,7 @@
                     <article class="bank-card"><img src="assets/banks/rastriya-banijya.png" alt="" onerror="this.remove()"><span>Rastriya Banijya</span></article>
                     <article class="bank-card"><img src="assets/banks/adbl.jpg" alt="" onerror="this.remove()"><span>ADBL</span></article>
                 </div>
-                <p class="fine" style="margin-top: 28px;">Rates and approval are set by each bank.</p>
-                <div class="text-links" style="margin-top: 18px;">
-                    <a href="emi.html">EMI calculator <span>›</span></a>
-                    <a href="https://wa.me/9779761633331?text=I%27d%20like%20help%20with%20vehicle%20finance" target="_blank" rel="noopener noreferrer">Enquire about finance <span>›</span></a>
-                </div>
+                <p class="fine" style="margin-top: 28px;">Rates and approval are set by each bank. This is an estimate, not an offer.</p>
             </div>
         </section>
 
@@ -1897,14 +2421,14 @@
                 <div class="about-layout">
                     <div class="about-gallery">
                         <figure class="about-photo animate-on-scroll">
-                            <img src="assets/about/xpeng-day.jpg" alt="XPENG handover at Panda Wheels, Panipokhari">
+                            <img src="assets/about/xpeng-day.jpg" alt="XPENG handover at Panda Wheels, Lalitpur">
                             <figcaption>
                                 <span>XPENG</span>
                                 Explorer of future mobility.
                             </figcaption>
                         </figure>
                         <figure class="about-photo g6 animate-on-scroll">
-                            <img src="assets/about/xpeng-g6.jpg" alt="Orange XPENG G6 at Panda Wheels, Panipokhari">
+                            <img src="assets/about/xpeng-g6.jpg" alt="Orange XPENG G6 at Panda Wheels, Lalitpur">
                             <figcaption>
                                 <span>G6</span>
                                 Leading the future of AI mobility.
@@ -1913,7 +2437,7 @@
                     </div>
                     <div class="about-text animate-on-scroll">
                         <p class="kicker">About</p>
-                        <p class="about-copy">Panda Wheels is an authorised partner of CG Motors in Panipokhari. A house of AION, XPENG, and RIDDARA — simpler to choose, finance, and live with.</p>
+                        <p class="about-copy">Panda Wheels is an authorised partner of CG Motors in Lalitpur. A house of AION, XPENG, and RIDDARA — simpler to choose, finance, and live with.</p>
                         <div class="values">
                             <article class="value animate-on-scroll">
                                 <h3>Trust</h3>
@@ -1925,7 +2449,7 @@
                             </article>
                             <article class="value animate-on-scroll">
                                 <h3>Service</h3>
-                                <p>From Panipokhari to every mile after.</p>
+                                <p>From Lalitpur to every mile after.</p>
                             </article>
                         </div>
                     </div>
@@ -1938,7 +2462,7 @@
                 <div class="section-head" style="text-align: left; margin-bottom: 28px;">
                     <p class="kicker animate-on-scroll">Contact</p>
                     <h2 class="animate-on-scroll">Get in Touch</h2>
-                    <p class="lead animate-on-scroll" style="margin: 10px 0 0; max-width: 46ch;">Visit us in Panipokhari, or send a note. We reply on WhatsApp.</p>
+                    <p class="lead animate-on-scroll" style="margin: 10px 0 0; max-width: 46ch;">Visit us in Lalitpur, or send a note. We reply on WhatsApp.</p>
                 </div>
                 <div class="channels">
                     <a class="channel animate-on-scroll" href="https://wa.me/9779761633331" target="_blank" rel="noopener noreferrer">
@@ -1959,13 +2483,13 @@
                             <span>info.pandawheels@gmail.com</span>
                         </span>
                     </a>
-                    <a class="channel animate-on-scroll" href="https://www.google.com/maps/search/?api=1&query=Panipokhari%2C%20Kathmandu%2003" target="_blank" rel="noopener noreferrer">
+                    <a class="channel animate-on-scroll" href="https://www.google.com/maps/search/?api=1&query=Lalitpur%2C%20Nepal" target="_blank" rel="noopener noreferrer">
                         <i aria-hidden="true">
                             <svg viewBox="0 0 24 24"><path d="M12 2.8a7.2 7.2 0 0 0-7.2 7.2c0 5.3 7.2 11.2 7.2 11.2s7.2-5.9 7.2-11.2A7.2 7.2 0 0 0 12 2.8zm0 9.7a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
                         </i>
                         <span>
                             <b>Showroom</b>
-                            <span>Panipokhari, Kathmandu 03</span>
+                            <span>Lalitpur, Nepal</span>
                         </span>
                     </a>
                 </div>
@@ -2008,14 +2532,14 @@
                     </div>
                     <div class="map-side">
                         <iframe
-                            title="Panda Wheels — Panipokhari, Kathmandu"
+                            title="Panda Wheels — Lalitpur"
                             loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"
-                            src="https://maps.google.com/maps?q=Panipokhari%2C%20Kathmandu%2003&z=16&output=embed">
+                            src="https://maps.google.com/maps?q=Lalitpur%2C%20Nepal&z=13&output=embed">
                         </iframe>
                         <div class="map-card">
-                            <p>Showroom<strong>Panipokhari, Kathmandu 03</strong></p>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Panipokhari%2C%20Kathmandu%2003" target="_blank" rel="noopener noreferrer">Open map</a>
+                            <p>Showroom<strong>Lalitpur, Nepal</strong></p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Lalitpur%2C%20Nepal" target="_blank" rel="noopener noreferrer">Open map</a>
                         </div>
                     </div>
                 </div>
@@ -2057,7 +2581,7 @@
         <div class="wrap footer-meta">
             <span>© 2026 Panda Wheels · Authorised CG Motors partner</span>
             <span class="tag">Growing Together</span>
-            <span>Panipokhari, Kathmandu 03</span>
+            <span>Lalitpur, Nepal</span>
         </div>
     </footer>
 
@@ -2076,7 +2600,10 @@
         };
         stagger(document.querySelectorAll('.hero .wrap > .animate-on-scroll'), 90);
         stagger(document.querySelectorAll('.hero-mosaic > *'), 110, 280);
-        stagger(document.querySelectorAll('.brand-grid > *'), 120);
+        stagger(document.querySelectorAll('.brand-jump > *'), 90);
+        stagger(document.querySelectorAll('.path-strip > *'), 90);
+        stagger(document.querySelectorAll('.finance-cta > *'), 100);
+        stagger(document.querySelectorAll('.variant'), 80);
         stagger(document.querySelectorAll('.about-gallery > *'), 140);
         stagger(document.querySelectorAll('.values > *'), 100);
         stagger(document.querySelectorAll('.channels > *'), 80);
@@ -2085,7 +2612,7 @@
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
         if (!reduceMotion && finePointer) {
-            document.querySelectorAll('.hero-stage, .hero-tile, .brand-card').forEach((el) => {
+            document.querySelectorAll('.hero-stage, .hero-tile').forEach((el) => {
                 el.addEventListener('mousemove', (event) => {
                     const box = el.getBoundingClientRect();
                     const x = (event.clientX - box.left) / box.width - 0.5;
